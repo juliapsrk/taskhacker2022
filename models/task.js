@@ -15,7 +15,8 @@ const taskSchema = new mongoose.Schema(
       type: String
     },
     status: {
-      enum: ['to do', 'in progress', 'done', 'wishlist'],
+      type: String,
+      //enum: ['to do', 'in progress', 'done', 'wishlist'],
       required: true
     },
     creator: {
@@ -27,6 +28,10 @@ const taskSchema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       required: true,
       ref: 'Board'
+    },
+    deadline: {
+      type: String,
+      required: true
     }
   },
   { timestamps: true }
