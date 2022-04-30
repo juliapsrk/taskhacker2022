@@ -13,14 +13,9 @@ Before the presentation
 
 - Clean up database 💥
 
-## Idea
+## Application
 
-Name
-
-- TaskHacker
-- IronTasker
-
-Application
+Name: taskhacker2022
 
 - task/productivity manager
 
@@ -76,43 +71,43 @@ User Profile - Displays a page with user information, profile photos
 
 Home
 
-- GET - '/' Renders home page
+- GET - '/' Renders home page ❌
 
 Authentication
 
-- GET - '/authentication/sign-up' - Renders sign up page
-- POST - '/authentication/sign-up' - Handles account registration
-- GET - '/authentication/sign-in' - Renders Sign in page
-- POST - '/authentication/sign-in' - Handles existing user authentication
-- POST - '/authentication/sign-out' - Handles usersign out
+- GET - '/authentication/sign-up' - Renders sign up page ✅
+- POST - '/authentication/sign-up' - Handles account registration ✅
+- GET - '/authentication/sign-in' - Renders Sign in page ✅
+- POST - '/authentication/sign-in' - Handles existing user authentication ✅
+- POST - '/authentication/sign-out' - Handles usersign out ❌
 
 User
 
-- GET - '/profile/:id' - renders user's profile page
-- GET - '/profile/:id/edit' - loads profile from database, renders profile edit page
-- POST - '/profile/:id/edit' - handles edit form submission
-- POST - '/profile/:id/delete' - handles deletion form submission
+- GET - '/profile/:id' - renders user's profile page ❌
+- GET - '/profile/:id/edit' - loads profile from database, renders profile edit page ❌
+- POST - '/profile/:id/edit' - handles edit form submission ❌
+- POST - '/profile/:id/delete' - handles deletion form submission ❌
 
 Team
 
-- GET - '/team/:id' - renders team page with members and list of kanban boards
-- GET - '/team/:id/edit' - loads team from database, renders team edit page
-- POST - '/team/:id/edit' - handles edit form submission
+- GET - '/team/:id' - renders team page with members and list of kanban boards ❌
+- GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
+- POST - '/team/:id/edit' - handles edit form submission ❌
 
 Board
 
-- GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info
-- GET - '/board/:id/edit' - loads kanban board from database, renders board edit page
-- POST - '/board/:id/edit' - handles edit form submission
+- GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ❌
+- GET - '/board/:id/edit' - loads kanban board from database, renders board edit page ❌
+- POST - '/board/:id/edit' - handles edit form submission ❌
 
 Task
 
-- GET - '/task/create' - renders task creation page
-- POST - '/task/create' - handles new task creation
-- GET - '/task/:id' - loads task from database, renders single task page with extended info
-- GET - '/task/:id/edit' - loads task from database, renders task edit page
-- POST - '/task/:id/edit' - handles edit form submission
-- POST - '/task/:id/delete' - handles delete form submission
+- GET - '/task/create' - renders task creation page ❌
+- POST - '/task/create' - handles new task creation ❌
+- GET - '/task/:id' - loads task from database, renders single task page with extended info ❌
+- GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
+- POST - '/task/:id/edit' - handles edit form submission ❌
+- POST - '/task/:id/delete' - handles delete form submission ❌
 
 ## Models
 

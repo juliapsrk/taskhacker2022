@@ -1,6 +1,10 @@
+<<<<<<< HEAD
 *,
 *:before,
 *:after {
+=======
+*, *:before, *:after {
+>>>>>>> dc2842703d463716cb76abf678d658a01d6c3ea1
   box-sizing: border-box;
 }
 
@@ -9,7 +13,11 @@ body {
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
+<<<<<<< HEAD
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+=======
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+>>>>>>> dc2842703d463716cb76abf678d658a01d6c3ea1
   line-height: 2;
 }
 
@@ -88,4 +96,8 @@ label {
   margin-bottom: 0.5em;
 }
 
+<<<<<<< HEAD
 /*# sourceMappingURL=style.css.map */
+=======
+/*# sourceMappingURL=style.css.map */
+>>>>>>> dc2842703d463716cb76abf678d658a01d6c3ea1
