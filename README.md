@@ -93,12 +93,14 @@ Team
 - GET - '/team/:id' - renders team page with members and list of kanban boards ❌
 - GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
 - POST - '/team/:id/edit' - handles edit form submission ❌
+- POST - '/team/:id/delete' - handles delete form submission ❌
 
 Board
 
 - GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ❌
 - GET - '/board/:id/edit' - loads kanban board from database, renders board edit page ❌
 - POST - '/board/:id/edit' - handles edit form submission ❌
+- POST - '/board/:id/delete' - handles delete form submission ❌
 
 Task
 

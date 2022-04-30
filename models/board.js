@@ -5,7 +5,19 @@ const mongoose = require('mongoose');
 const boardSchema = new mongoose.Schema({
   name: {
     type: String,
-    required: true
+    maxlength: 100,
+    required: true,
+    unique: true
+  },
+  creator: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'User'
+  },
+  team: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'Team'
   }
 });
 
