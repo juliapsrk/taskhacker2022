@@ -6,9 +6,30 @@ const fileUpload = require('./../middleware/file-upload');
 const taskRouter = new express.Router();
 
 // GET - '/task/create' - renders task creation page ❌
-taskRouter;
+taskRouter.get('/create', routeGuard, (req, res) => {
+  res.render('task-create');
+});
 
 // POST - '/task/create' - handles new task creation ❌
+taskRouter.post(
+  '/create',
+  routeGuard,
+  fileUpload.single('picture'),
+  (req, res, next) => {
+    const { title } = req.body;
+    // If there is a picture, store the url in the picture variable
+    let picture;
+    if (req.file) {
+      picture = req.file.path;
+    }
+    // Call create method on Task model
+    Task.create({
+      title,
+      description,
+      creator: req.user._id
+    });
+  }
+);
 
 // GET - '/task/:id' - loads task from database, renders single task page with extended info ❌
 
