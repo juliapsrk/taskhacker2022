@@ -15,6 +15,14 @@ const schema = new mongoose.Schema({
   },
   passwordHashAndSalt: {
     type: String
+  },
+  picture: {
+    type: String
+  },
+  team: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'Team'
   }
 });
 
