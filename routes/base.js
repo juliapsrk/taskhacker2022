@@ -13,5 +13,3 @@ router.get('/private', routeGuard, (req, res, next) => {
 });
 
 module.exports = router;
-
-// test test//
