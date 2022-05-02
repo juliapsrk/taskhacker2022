@@ -35,12 +35,23 @@ profileRouter.post('/edit', routeGuard, (req, res, next) => {
 profileRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   let user;
-  User.findById(id).then((userDocument) => {
-    user = userDocument;
-    if (!user) {
-      throw new Error('User_');
-    }
-  });
+  User.findById(id)
+    .then((userDocument) => {
+      user = userDocument;
+      if (!user) {
+        throw new Error('PROFILE_NOT_FOUND');
+      } else {
+        return Publication.find({ creator: id }).sort({ createdAt: -1 });
+      }
+    })
+    .then((publications) => {
+      let userIsOwner = req.user && String(req.user._id) === id;
+      res.render('profile', { profile: user, publications, userIsOwner });
+    })
+    .catch((error) => {
+      console.log(error);
+      next(new Error('PROFILE_NOT_FOUND'));
+    });
 });
 
 module.exports = profileRouter;
