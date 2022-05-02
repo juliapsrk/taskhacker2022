@@ -1,0 +1,10 @@
+<header class="profile-header">
+    <img src="{{profile.picture}}" alt="{{profile.name}}" />
+    <h1>{{profile.name}}</h1>
+</header>
+
+<a href="/profile/edit">Edit Profile</a>
+
+{{#each tasks}}
+{{> task}}
+{{/each}}

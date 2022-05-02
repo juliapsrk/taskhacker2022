@@ -1,0 +1,17 @@
+{{#if task.picture}}
+  <img src="{{task.picture}}" alt="{{task.title}}" />
+{{/if}}
+
+<p>{{task.title}}</p>
+<p>{{task.description}}</p>
+<small>{{task.createdAt}}</small>
+
+<br />
+
+<a href="/profile/{{task.creator._id}}">{{task.creator.name}}</a>
+
+<a href="/task/{{task._id}}/edit">Edit Task</a>
+
+<form method="POST" action="/task/{{task._id}}/delete">
+  <button>Delete Task</button>
+</form>

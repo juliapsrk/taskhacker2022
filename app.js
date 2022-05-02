@@ -16,8 +16,11 @@ const taskRouter = require('./routes/task');
 const profileRouter = require('./routes/profile');
 const teamRouter = require('./routes/team');
 const boardRouter = require('./routes/board');
+const hbs = require('hbs');
 
 const app = express();
+
+hbs.registerPartials(path.join(__dirname, 'views/partials'));
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
