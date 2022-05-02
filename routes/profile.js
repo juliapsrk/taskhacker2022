@@ -1,6 +1,7 @@
 const express = require('express');
 const User = require('./../models/user');
 const routeGuard = require('./../middleware/route-guard');
+const fileUpload = require('./../middleware/file-upload');
 const Board = require('./../models/board');
 const Task = require('./../models/task');
 const Team = require('./../models/team');
@@ -44,9 +45,9 @@ profileRouter.get('/:id', (req, res, next) => {
         return Publication.find({ creator: id }).sort({ createdAt: -1 });
       }
     })
-    .then((publications) => {
+    .then((task) => {
       let userIsOwner = req.user && String(req.user._id) === id;
-      res.render('profile', { profile: user, publications, userIsOwner });
+      res.render('profile', { profile: user, task, userIsOwner });
     })
     .catch((error) => {
       console.log(error);
