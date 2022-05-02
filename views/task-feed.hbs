@@ -1,0 +1,19 @@
+{{#each tasks}}
+  {{!-- {{> task}} --}}
+
+  <a href="/task/{{_id}}" class="task-item">
+    {{#if picture}}
+      <img src="{{picture}}" />
+    {{/if}}
+
+    <div>
+      <p>{{title}}</p>
+      {{! title was 'message' before }}
+      <small>{{createdAt}} </small>
+      |
+      <small>{{creator.name}}</small>
+    </div>
+
+  </a>
+
+{{/each}}
