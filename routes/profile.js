@@ -15,21 +15,27 @@ profileRouter.get('/edit', routeGuard, (req, res, next) => {
 
 // POST - '/profile/:id/edit' - Handles profile edit form submission.
 
-profileRouter.post('/edit', routeGuard, (req, res, next) => {
-  const id = req.user._id;
-  const { name, email } = req.body;
-  let picture;
-  if (req.file) {
-    picture.req.file.path;
+profileRouter.post(
+  '/edit',
+  routeGuard,
+  fileUpload.single('picture'),
+  (req, res, next) => {
+    const id = req.user._id;
+    const { name, email } = req.body;
+    let picture;
+    if (req.file) {
+      picture = req.file.path;
+    }
+    User.findByIdAndUpdate(id, { name, email, picture })
+      .then(() => {
+        console.log('picture');
+        res.redirect(`/profile/${id}`);
+      })
+      .catch((error) => {
+        next(error);
+      });
   }
-  User.findByIdAndUpdate(id, { name, email, picture })
-    .then(() => {
-      res.redirect('/profile/${id}');
-    })
-    .catch((error) => {
-      next(error);
-    });
-});
+);
 
 // GET - '/profile/:id' - Loads user with params.id from collection, renders profile page.
 
@@ -42,7 +48,7 @@ profileRouter.get('/:id', (req, res, next) => {
       if (!user) {
         throw new Error('PROFILE_NOT_FOUND');
       } else {
-        return Publication.find({ creator: id }).sort({ createdAt: -1 });
+        return Task.find({ creator: id }).sort({ createdAt: -1 });
       }
     })
     .then((task) => {
@@ -50,8 +56,7 @@ profileRouter.get('/:id', (req, res, next) => {
       res.render('profile', { profile: user, task, userIsOwner });
     })
     .catch((error) => {
-      console.log(error);
-      next(new Error('PROFILE_NOT_FOUND'));
+      next(error);
     });
 });
 
