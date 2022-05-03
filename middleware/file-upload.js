@@ -1,5 +1,5 @@
-const multer = require('multer');
-//const cloudinary = require('cloudinary');
+// const multer = require('multer');
+// // const cloudinary = require('cloudinary');
 // const multerStorageCloudinary = require('multer-storage-cloudinary');
 
 // // If we have set the CLOUDINARY_URL environment variable on our project

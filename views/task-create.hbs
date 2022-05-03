@@ -1,0 +1,16 @@
+<h1>Add new task</h1>
+
+<form method="POST" enctype="multipart/form-data">
+  <label for="input-message">Message</label>
+  <textarea
+    id="input-message"
+    name="message"
+    placeholder="Add new task..."
+    required
+  ></textarea>
+
+  <label for="input-file">Add attachments</label>
+  <input id="input-file" type="file" <!-- accept="image/*" --> name="file" />
+
+  <button>Add new task</button>
+</form>

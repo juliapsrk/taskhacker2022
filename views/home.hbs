@@ -1,6 +1,19 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+{{! create a team }}
+<a href="/team/create"></a>
+<form method="POST" action="/team-create">
+  <button>Create new team</button>
+</form>
+
+{{! join a team }}
+<a href="/team/request-to-join"></a>
+<form method="POST" action="/team/request-to-join">
+  <button>Join existing team</button>
+</form>
+
+{{!-- 
 {{#each tasks}}
 {{> task}}
-{{/each}}
+{{/each}} --}}

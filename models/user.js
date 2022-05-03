@@ -21,7 +21,6 @@ const schema = new mongoose.Schema({
   },
   team: {
     type: mongoose.Types.ObjectId,
-    required: false,
     ref: 'Team'
   }
 });
