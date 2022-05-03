@@ -8,6 +8,11 @@ const teamSchema = new mongoose.Schema({
     maxlength: 100,
     required: true,
     unique: true
+  },
+  creator: {
+    type: mongoose.Types.ObjectId,
+    required: true,
+    ref: 'User'
   }
 });
 

@@ -12,10 +12,10 @@ const basicAuthenticationDeserializer = require('./middleware/basic-authenticati
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const baseRouter = require('./routes/base');
 const authenticationRouter = require('./routes/authentication');
-const taskRouter = require('./routes/task');
 const profileRouter = require('./routes/profile');
 const teamRouter = require('./routes/team');
 const boardRouter = require('./routes/board');
+const taskRouter = require('./routes/task');
 const hbs = require('hbs');
 
 const app = express();
@@ -61,9 +61,9 @@ app.use(bindUserToViewLocals);
 app.use('/', baseRouter);
 app.use('/authentication', authenticationRouter);
 app.use('/profile', profileRouter);
-app.use('/task', taskRouter);
 app.use('/team', teamRouter);
 app.use('/board', boardRouter);
+app.use('/task', taskRouter);
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
