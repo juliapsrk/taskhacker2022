@@ -171,6 +171,7 @@ Expenses Tracker
 
 Expenses
 
+Drag and drop feature - By clicking and holding on the task user will be able to drag it to the relevant status column (to do, in progress, completed, )
 /////////////////////////
 
 Calendar (view of events (& tasks?)) : - npm package for calendar/dates
