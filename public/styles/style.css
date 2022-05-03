@@ -86,4 +86,31 @@ label {
   margin-bottom: 0.5em;
 }
 
+.task-item {
+  display: flex;
+  align-items: center;
+  margin: 1em 0;
+}
+
+.task-item p {
+  margin: 0;
+}
+
+.task-item img {
+  width: 6em;
+  height: 6em;
+  margin-right: 1em;
+  object-fit: cover;
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 2em;
+}
+
+.profile-header img {
+  width: 10em;
+}
+
 /*# sourceMappingURL=style.css.map */
