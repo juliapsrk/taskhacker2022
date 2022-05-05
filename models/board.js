@@ -11,7 +11,7 @@ const boardSchema = new mongoose.Schema({
   },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: 'User'
   },
   team: {
