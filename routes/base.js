@@ -1,11 +1,19 @@
 'use strict';
 
 const express = require('express');
+const Team = require('../models/team');
 const router = express.Router();
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', (req, res, next) => {
-  res.render('home', { title: 'TaskHacker 2022' });
+  const teamsIds = req.user ? req.user.teams : [];
+  Team.find({ _id: { $in: teamsIds } })
+    .then((teams) => {
+      res.render('home', { title: 'TaskHacker 2022', teams });
+    })
+    .catch((error) => {
+      next(error);
+    });
 });
 
 router.get('/private', routeGuard, (req, res, next) => {

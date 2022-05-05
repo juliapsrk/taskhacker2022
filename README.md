@@ -100,7 +100,7 @@ Team
 
 - GET - '/team/request-to-join' - renders team request-to-join list of people ❌
 
-- GET - '/team/:id' - renders team page with members and list of kanban boards ❌
+- GET - '/team/:id' - renders team page with members and list of kanban boards ✅
 - GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
 - POST - '/team/:id/edit' - handles edit form submission ❌
 - POST - '/team/:id/delete' - handles delete form submission ❌

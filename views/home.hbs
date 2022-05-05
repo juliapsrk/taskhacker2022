@@ -1,11 +1,10 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
-<h3>Your teams</h3>
+<h4>Teams you joined</h4>
 {{#each teams}}
-{{> teams}}
+{{> team}}
 {{/each}}
-<a href="/team/{{team._id}}">{{team.name}}</a>
 
 {{! create a team }}
 <a href="/team/create">

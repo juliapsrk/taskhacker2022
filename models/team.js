@@ -10,7 +10,7 @@ const teamSchema = new mongoose.Schema({
     unique: true
   },
   creator: {
-    type: mongoose.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   }
 });

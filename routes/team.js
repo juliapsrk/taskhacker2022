@@ -1,6 +1,7 @@
 const express = require('express');
 const Team = require('./../models/team.js');
 const routeGuard = require('./../middleware/route-guard.js');
+const User = require('../models/user.js');
 
 const teamRouter = new express.Router();
 
@@ -13,12 +14,19 @@ teamRouter.get('/create', routeGuard, (req, res) => {
 teamRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   // Call create method on Team model
+  let team;
   Team.create({
-    name: req.body.name
+    name: req.body.name,
+    creator: req.user._id
   })
-    .then((result) => {
-      console.log('team created', result);
-      res.redirect(`/team/${req.body._id}`);
+    .then((teamDocument) => {
+      team = teamDocument;
+      return User.findByIdAndUpdate(req.user._id, {
+        $push: { teams: team._id }
+      });
+    })
+    .then(() => {
+      res.redirect(`/team/${team._id}`);
     })
     .catch((error) => {
       next(error);
@@ -27,20 +35,30 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
 
 // GET - '/team/request-to-join' - renders team request-to-join list of people ❌
 
-// GET - '/team/:id' - renders team page with members and list of kanban boards ❌
-teamRouter.get('/team/:id', (req, res, next) => {
+// GET - '/team/:id' - renders team page with members and list of boards ✅
+teamRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Team.findById(id)
     .populate('creator')
     .then((team) => {
       let userIsOwner =
-        req.user && String(rq.user._id) === String(team.creator._id);
+        req.user && String(req.user._id) === String(team.creator._id);
       res.render('team-single', { team, userIsOwner });
     })
     .catch((error) => {
       console.log(error);
       next(new Error('TEAM_NOT_FOUND'));
     });
+  // User.findById(id)
+  //   .populate('user')
+  //   .then((user) => {
+  //     let userIsMember =
+  //       req.user && String(req.user._id) === String(team.user._id)
+  //     res.render('team-single', { user, userIsMember });
+  //   })
+  //   .catch((error) => {
+  //     console.log(error);
+  //     next(new Error('TEAM_NOT_FOUND'));
 });
 
 // GET - '/team/:id/edit' - loads team from database, renders team edit page ❌

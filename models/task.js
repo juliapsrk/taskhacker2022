@@ -20,12 +20,12 @@ const taskSchema = new mongoose.Schema(
       required: true
     },
     creator: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'User'
     },
     board: {
-      type: mongoose.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       required: true,
       ref: 'Board'
     },

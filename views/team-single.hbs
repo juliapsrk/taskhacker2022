@@ -1,24 +1,41 @@
-<h2>{{team.title}}</h2>
+<h2>{{team.name}}</h2>
 
-<h3>{{team.title}}'s boards</h3>
-{{!-- {{#each boards}}
+<h3>{{team.name}}'s boards</h3>
+{{#each boards}}
 {{> boards}}
-{{/each}} --}}
-
-<h3>{{team.title}}'s members</h3>
-{{! doesn't exist yet }}
-{{!-- {{#each members}}
-{{> members}}
 {{/each}}
-<a href="/profile/{{team.member._id}}">{{team.member.name}}</a> --}}
 
-<h3>{{team.title}}'s creator</h3>
-<a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
+{{!-- create new board --}}
+
+<h3>Create a new board</h3>
+
+<form action="/board/create" method="POST">
+  <label for="input-name">Board Name</label>
+  <input type="text" id="input-name" name="name" placeholder="Board Name" />
+  <button>Create board</button>
+</form>
+
+
+<h3>Members:</h3>
+{{#each users}}
+{{> user}}
+{{/each}}
+{{! doesn't exist yet }}
+<a href="/profile/{{team.user._id}}">{{team.user.name}}</a> --}}
+
+<h3>Creator:
+  <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
+  </h3>
+
 
 {{#if userIsOwner}}
-  <a href="/team/{{team._id}}/edit">Edit Team</a>
+  {{!-- <a href="/team/{{team._id}}/edit"> --}}
+
+  <form method="POST" action="/team/{{team._id}}/edit">
+  <button>Edit Team</button>
+  </form>
 
   <form method="POST" action="/team/{{team._id}}/delete">
-    <button>Delete Team</button>
+  <button>Delete Team</button>
   </form>
 {{/if}}

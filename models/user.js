@@ -19,10 +19,12 @@ const schema = new mongoose.Schema({
   picture: {
     type: String
   },
-  team: {
-    type: mongoose.Types.ObjectId,
-    ref: 'Team'
-  }
+  teams: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Team'
+    }
+  ]
 });
 
 const User = mongoose.model('User', schema);
