@@ -1,7 +1,6 @@
 const express = require('express');
-const Board = require('./../models/task.js');
+const Board = require('./../models/board.js');
 const routeGuard = require('./../middleware/route-guard.js');
-const fileUpload = require('./../middleware/file-upload');
 
 const boardRouter = new express.Router();
 

@@ -50,28 +50,33 @@ Authentication
 Sign up - Allows visitors to create an account
 Sign in - Allows Existing users to sign in
 
-Kanban Board
-Kanban Board - Displays kanban board with tasks in different categories
-Create a task - Displays a form that allows a user to create/submit a new task within each category (so new task button for to do, for in progress, for done, etc.)
+Team
+Team - Displays team with name, boards, members, creator
+Create a new board - displays a form that allows team members to create a new board
+Edit an existing board - displays a form that allows board creator to edit board
+Delete a board - allows board creator to delete board
+
+Board
+Board - Displays kanban board with tasks in different categories
+Create a task - Displays a form that allows a user to create a new task within each category (so new task button for to do, for in progress, for done, etc.)
 Edit a task - Displays a form that allows a user to edit his post
 Delete a task - Allows user to delete his post
 
-Calendar
+Profile
+User Profile - Displays a page with user information, profile photos
+Edit Profile - displays a form that allows user to edit his profile
+
+<!-- Calendar
 Create an event - Displays a form that allows a user to create/submit a new post
 Single event - click from home page onto bigger view of post (single post view) with a little more info, show interactions
 Edit a event - Displays a form that allows a user to edit his post
-Delete a event - Allows user to delete his post
-
-Profile
-User Profile - Displays a page with user information, profile photos
-
-<!-- Edit Profile? -->
+Delete a event - Allows user to delete his post -->
 
 ## Route Handlers
 
 Home
 
-- GET - '/' Renders home page ❌
+- GET - '/' Renders home page ✅
 
 Authentication
 
@@ -79,19 +84,19 @@ Authentication
 - POST - '/authentication/sign-up' - Handles account registration ✅
 - GET - '/authentication/sign-in' - Renders Sign in page ✅
 - POST - '/authentication/sign-in' - Handles existing user authentication ✅
-- POST - '/authentication/sign-out' - Handles usersign out ❌
+- POST - '/authentication/sign-out' - Handles usersign out ✅
 
 User
 
-- GET - '/profile/:id' - renders user's profile page ❌
-- GET - '/profile/:id/edit' - loads profile from database, renders profile edit page ❌
-- POST - '/profile/:id/edit' - handles edit form submission ❌
+- GET - '/profile/:id' - renders user's profile page ✅
+- GET - '/profile/:id/edit' - loads profile from database, renders profile edit page ✅
+- POST - '/profile/:id/edit' - handles edit form submission ✅
 - POST - '/profile/:id/delete' - handles deletion form submission ❌
 
 Team
 
-- GET - '/team/create' - renders team creation page ❌
-- POST - '/team/create' - handles new team creation ❌
+- GET - '/team/create' - renders team creation page ✅
+- POST - '/team/create' - handles new team creation ✅
 
 - GET - '/team/request-to-join' - renders team request-to-join list of people ❌
 

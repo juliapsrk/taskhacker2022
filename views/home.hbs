@@ -1,18 +1,18 @@
 <h1>{{title}}</h1>
 <p>Welcome to {{title}}</p>
 
+<h3>Your teams</h3>
+{{#each teams}}
+{{> teams}}
+{{/each}}
+<a href="/team/{{team._id}}">{{team.name}}</a>
+
 {{! create a team }}
 <a href="/team/create">
   <button>Create new team</button>
 </a>
-{{! <form method="POST" action="/team/create">
-
-</form> }}
 
 {{! join a team }}
 <a href="/team/request-to-join">
   <button>Join existing team</button>
 </a>
-{{! <form method="POST" action="/team/request-to-join">
-
-</form> }}

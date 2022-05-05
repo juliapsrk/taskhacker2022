@@ -1,0 +1,24 @@
+<h2>{{team.title}}</h2>
+
+<h3>{{team.title}}'s boards</h3>
+{{!-- {{#each boards}}
+{{> boards}}
+{{/each}} --}}
+
+<h3>{{team.title}}'s members</h3>
+{{! doesn't exist yet }}
+{{!-- {{#each members}}
+{{> members}}
+{{/each}}
+<a href="/profile/{{team.member._id}}">{{team.member.name}}</a> --}}
+
+<h3>{{team.title}}'s creator</h3>
+<a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
+
+{{#if userIsOwner}}
+  <a href="/team/{{team._id}}/edit">Edit Team</a>
+
+  <form method="POST" action="/team/{{team._id}}/delete">
+    <button>Delete Team</button>
+  </form>
+{{/if}}
