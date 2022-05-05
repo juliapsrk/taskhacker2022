@@ -1,0 +1,15 @@
+<h1>Edit Team</h1>
+
+<form method="POST" {{! enctype="multipart/form-data"}}>
+  <label for="input-name">Team Name</label>
+  <input
+    type="text"
+    id="input=name"
+    name="name"
+    placeholder="Type your new user name"
+    value="{{team.name}}"
+  />
+
+  <button>Edit Team</button>
+
+</form>

@@ -91,19 +91,18 @@ User
 - GET - '/profile/:id' - renders user's profile page ✅
 - GET - '/profile/:id/edit' - loads profile from database, renders profile edit page ✅
 - POST - '/profile/:id/edit' - handles edit form submission ✅
-- POST - '/profile/:id/delete' - handles deletion form submission ❌
 
 Team
 
 - GET - '/team/create' - renders team creation page ✅
 - POST - '/team/create' - handles new team creation ✅
 
-- GET - '/team/request-to-join' - renders team request-to-join list of people ❌
-
 - GET - '/team/:id' - renders team page with members and list of kanban boards ✅
 - GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
 - POST - '/team/:id/edit' - handles edit form submission ❌
 - POST - '/team/:id/delete' - handles delete form submission ❌
+
+- GET - '/team/request-to-join' - renders team request-to-join list of people ❌
 
 Board
 
