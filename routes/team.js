@@ -1,26 +1,26 @@
 const express = require('express');
-const Team = require('./../models/task.js');
+const Team = require('./../models/team.js');
 const routeGuard = require('./../middleware/route-guard.js');
 // const fileUpload = require('./../middleware/file-upload');
 
 const teamRouter = new express.Router();
 
 // GET - '/team/create' - renders task creation page ❌
-teamRouter.get('/team/create', routeGuard, (req, res) => {
-  res.render('/views/team-create.hbs');
+teamRouter.get('/create', routeGuard, (req, res) => {
+  res.render('team-create');
 });
 
 // POST - '/team/create' - handles new task creation ❌
-teamRouter.post('/team/create', routeGuard, (req, res, next) => {
+teamRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   // Call create method on Team model
   Team.create({
-    name: req.team.name,
-    name: req.team._id,
-    creator: req.user._id
+    name: req.body.name
+    // creator: req.user._id
   })
-    .then(() => {
-      res.redirect('/team/:id');
+    .then((result) => {
+      console.log('team created', result);
+      // res.redirect(`/team/${req.body._id}`);
     })
     .catch((error) => {
       next(error);

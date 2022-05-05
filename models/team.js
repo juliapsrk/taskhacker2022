@@ -11,7 +11,6 @@ const teamSchema = new mongoose.Schema({
   },
   creator: {
     type: mongoose.Types.ObjectId,
-    required: true,
     ref: 'User'
   }
 });
