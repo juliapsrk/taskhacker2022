@@ -32,12 +32,8 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
     title,
     description,
     status,
-    creator: req.user._id,
-    // board: req.board._id,
-    // createdAt, deadline
-    name: req.body.name,
-    creator: req.user._id,
-    team: req._id
+    creator: req.user._id
+    // board: req.board._id
   })
     .then((taskDocument) => {
       task = taskDocument;

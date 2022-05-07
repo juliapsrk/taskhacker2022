@@ -1,22 +1,7 @@
-{{!-- 
-
-<p>{{task.description}}</p>
-<small>{{task.createdAt}}</small> --}}
-
-{{!-- <br /> --}}
-
-{{!-- <a href="/team/{{team.creator._id}}">{{team.creator.name}}</a>
-<a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a> --}}
-
-{{!-- <a href="/task/{{task._id}}/edit">Edit Task</a> --}}
-
-{{!-- <form method="POST" action="/task/{{task._id}}/delete">
-  <button>Delete Task</button>
-</form> --}}
-
 <h2>{{board.name}}</h2>
+<h3>{{board.name}}'s tasks:</h3>
 {{!-- order in kanban board style somehow at some point --}}
-{{#each tasks}}
+{{#each board.tasks}}
 {{> task}}
 {{/each}}
 
@@ -27,33 +12,21 @@
   <button>Add task</button>
 </form>
 
-{{!-- <form action="/task/create" method="POST">
-  <label for="input-name">Task Name</label>
-  <input type="text" id="input-name" name="name" placeholder="Task Name" />
-  <button>Create task</button>
-</form> --}}
-
-
 <h3>Members:</h3>
-{{#each teams}}
-{{> team}}
+{{!-- {{#each board.members}}
+{{> member}}
 {{/each}}
 {{! doesn't exist yet }}
-<a href="/profile/{{team.user._id}}">{{team.user.name}}</a>
+<a href="/profile/{{team.user._id}}">{{team.user.name}}</a> --}}
 
-<h3><Creator:</h3>
-
-  {{!-- <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
-  </h3> --}}
-
+<h3>Creator:</h3>
+  <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a>
+  </h3>
 
 {{#if userIsOwner}}
-  {{!-- <a href="/team/{{team._id}}/edit"> --}}
-
   <a href="/board/{{board._id}}/edit">Edit Board</a>
 
   <form method="POST" action="/board/{{board._id}}/delete">
   <button>Delete Board</button>
   </form>
 {{/if}}
-

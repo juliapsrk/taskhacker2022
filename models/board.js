@@ -12,9 +12,9 @@ const boardSchema = new mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
   },
-  team: {
+  task: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: 'Team'
+    ref: 'Task'
   }
 });
 

@@ -9,14 +9,16 @@ const boardRouter = new express.Router();
 
 // GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ✅
 boardRouter.get('/:id', routeGuard, (req, res, next) => {
-  Board.findById(req.params.id)
+  const { id } = req.params;
+  Board.findById(id)
     .populate('creator')
-    .populate('team')
+    .populate('task')
     .then((board) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(board.creator._id);
+      let task;
       req.session.boardId = board._id;
-      res.render('board-single', { board, userIsOwner });
+      res.render('board-single', { board, userIsOwner, task });
     })
     .catch((error) => {
       next(error);
@@ -40,7 +42,6 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
         $push: { boards: board._id }
       });
     })
-    // somehow link board to its team
     .then(() => {
       res.redirect(`/board/${board._id}`);
     })
