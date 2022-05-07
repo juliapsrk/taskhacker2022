@@ -22,16 +22,11 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
   })
     .then((boardDocument) => {
       board = boardDocument;
-<<<<<<< HEAD
-      return User.findById(req.user._id).populate('teams');
-      return board.findByAndUpdate(req.user._id, {
-=======
       return Board.findByAndUpdate(req.user._id, {
->>>>>>> 300034ec36f7c2fd58628ad29b89a751edfd4765
         $push: { boards: board._id }
       });
     })
-    .then(() => {})
+    .then((boardDocument) => {})
     .then(() => {
       res.redirect(`/board/${board._id}`);
     })
