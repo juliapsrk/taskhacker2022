@@ -2,7 +2,7 @@
 
 <h3>{{team.name}}'s boards</h3>
 {{#each boards}}
-{{> boards}}
+{{> board}}
 {{/each}}
 
 {{!-- create new board --}}
@@ -31,9 +31,7 @@
 {{#if userIsOwner}}
   {{!-- <a href="/team/{{team._id}}/edit"> --}}
 
-  <form method="POST" action="/team/{{team._id}}/edit">
-  <button>Edit Team</button>
-  </form>
+  <a href="/team/{{team._id}}/edit">Edit Team</a>
 
   <form method="POST" action="/team/{{team._id}}/delete">
   <button>Delete Team</button>
