@@ -1,12 +1,7 @@
 <h2>{{team.name}}</h2>
 
-<<<<<<< HEAD
-<h4>Your boards</h4>
-{{#each boards}}
-=======
 <h3>{{team.name}}'s boards</h3>
 {{#each team.boards}}
->>>>>>> c5c7976c49eedda516358afb8aa01b9b376b1a34
 {{> board}}
 {{/each}}
 
@@ -20,7 +15,7 @@
 
 
 <h3>Members:</h3>
-{{#each users}}
+{{#each team.users}}
 {{> user}}
 {{/each}}
 {{! doesn't exist yet }}
