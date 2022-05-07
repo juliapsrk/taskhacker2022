@@ -30,13 +30,14 @@
 
 
 <h3>Members:</h3>
-{{!-- {{#each users}}
-{{> user}}
+{{#each teams}}
+{{> team}}
 {{/each}}
 {{! doesn't exist yet }}
-<a href="/profile/{{team.user._id}}">{{team.user.name}}</a> --}}
+<a href="/profile/{{team.user._id}}">{{team.user.name}}</a>
 
-<h3>Creator:
+<h3><Creator:</h3>
+
   {{!-- <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
   </h3> --}}
 
