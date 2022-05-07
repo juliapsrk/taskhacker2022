@@ -15,6 +15,7 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   // Call create method on Team model
   let team;
+  let member;
   Team.create({
     name: req.body.name,
     creator: req.user._id
@@ -23,6 +24,13 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
       team = teamDocument;
       return User.findByIdAndUpdate(req.user._id, {
         $push: { teams: team._id }
+      });
+    })
+    .then((memberDocument) => {
+      // members = users (for future reference)
+      member = memberDocument;
+      return Team.findByIdAndUpdate(team._id, {
+        $push: { members: member._id }
       });
     })
     .then(() => {
@@ -34,6 +42,8 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
 });
 
 // GET - '/team/request-to-join' - renders team request-to-join list of people ❌
+// form with team name, search for it, post request on form url -- team.find
+// use name that user submitted to form in object
 
 // GET - '/team/:id' - renders team page with members and list of boards ✅
 teamRouter.get('/:id', (req, res, next) => {
@@ -43,64 +53,27 @@ teamRouter.get('/:id', (req, res, next) => {
     .then((team) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(team.creator._id);
+
+      req.session.teamId = team._id;
       res.render('team-single', { team, userIsOwner });
     })
     .catch((error) => {
       console.log(error);
       next(new Error('TEAM_NOT_FOUND'));
     });
-  // User.findById(id)
-  //   .populate('user')
-  //   .then((user) => {
-  //     let userIsMember =
-  //       req.user && String(req.user._id) === String(team.user._id)
-  //     res.render('team-single', { user, userIsMember });
-  //   })
-  //   .catch((error) => {
-  //     console.log(error);
-  //     next(new Error('TEAM_NOT_FOUND'));
 });
 
-// GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
+// GET - '/team/:id/edit' - loads team from database, renders team edit page ✅
 teamRouter.get('/:id/edit', routeGuard, (req, res, next) => {
-  const { id } = req.params;
-  Team.findByIdAndUpdate(id, { name })
-    .then((team) => {
-      if (!team) {
-        throw new Error('TEAM_NOT_FOUND');
-      }
-      res.render('team-edit', { team: req._id });
-    })
-    .catch((error) => {
-      next(error);
-    });
+  res.render('team-edit', { team: req._id });
 });
 
-// GET - '/team/:id/edit' - Loads user and renders team edit view.
-// teamRouter.get(':id/edit', routeGuard, (req, res, next) => {
-//   res.render('team-edit', { team: team._id });
-// });
-
-// POST - '/meow/:id/edit' - Handles edit form submission.
-// teamRouter.post('/:id/edit', routeGuard, (req, res, next) => {
-//     const { id } = req.params;
-//     Team.findOneAndUpdate(
-//       { _id: id, creator: req.user._id },
-//     )
-//       .then(() => {
-//         res.redirect(`/team/${id}`);
-//       })
-//       .catch((error) => {
-//         next(error);
-//       });
-//   }
-// );
-
-// POST - '/team/:id/edit' - handles edit form submission ❌
+// POST - '/team/:id/edit' - handles edit form submission ✅
 teamRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
+  const { name } = req.body;
   //   Team.findByIdAndUpdate(id)
-  Team.findOneAndUpdate({ _id: id, creator: req.user._id })
+  Team.findOneAndUpdate({ _id: id, creator: req.user._id }, { name })
     .then(() => {
       res.redirect(`/team/${id}`);
     })

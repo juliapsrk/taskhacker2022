@@ -12,7 +12,19 @@ const teamSchema = new mongoose.Schema({
   creator: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User'
-  }
+  },
+  members: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'User'
+    }
+  ],
+  boards: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Board'
+    }
+  ]
 });
 
 const Team = mongoose.model('Team', teamSchema);
