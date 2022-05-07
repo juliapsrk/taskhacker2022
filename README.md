@@ -102,7 +102,7 @@ Team
 - POST - '/team/:id/edit' - handles edit form submission ❌
 - POST - '/team/:id/delete' - handles delete form submission ❌
 
-- GET - '/team/request-to-join' - renders team request-to-join list of people ❌
+- GET - '/team/request-to-join' - renders team request-to-join list of people ✅
 
 Board
 

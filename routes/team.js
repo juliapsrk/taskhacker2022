@@ -62,14 +62,13 @@ teamRouter.get('/:id', (req, res, next) => {
 });
 
 // GET - '/team/:id/edit' - loads team from database, renders team edit page ❌
-teamRouter.get(':id/edit', routeGuard, (req, res, next) => {
+teamRouter.get('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  Team.findById(id)
+  Team.findByIdAndUpdate(id, { name })
     .then((team) => {
-      // if (!team) {
-      //   throw new Error('TEAM_NOT_FOUND');
-      // }
-      console.log('team edit working', team);
+      if (!team) {
+        throw new Error('TEAM_NOT_FOUND');
+      }
       res.render('team-edit', { team: req._id });
     })
     .catch((error) => {
@@ -77,39 +76,41 @@ teamRouter.get(':id/edit', routeGuard, (req, res, next) => {
     });
 });
 
-// GET - '/profile/:id/edit' - Loads user and renders profile edit view.
+// GET - '/team/:id/edit' - Loads user and renders team edit view.
 // teamRouter.get(':id/edit', routeGuard, (req, res, next) => {
-//   res.render('team-edit', { team: req._id });
+//   res.render('team-edit', { team: team._id });
 // });
+
+// POST - '/meow/:id/edit' - Handles edit form submission.
+// teamRouter.post('/:id/edit', routeGuard, (req, res, next) => {
+//     const { id } = req.params;
+//     Team.findOneAndUpdate(
+//       { _id: id, creator: req.user._id },
+//     )
+//       .then(() => {
+//         res.redirect(`/team/${id}`);
+//       })
+//       .catch((error) => {
+//         next(error);
+//       });
+//   }
+// );
 
 // POST - '/team/:id/edit' - handles edit form submission ❌
-// teamRouter.post('team/:id/edit', routeGuard, (req, res, next) => {
-//   const { id } = req.params;
-//   Team.findOneAndUpdate({ _id: id, creator: req.user._id })
-//     .then(() => {
-//       res.redirect(`/team/${id}`);
-//     })
-//     .catch((error) => {
-//       next(error);
-//     });
-// });
-
-// POST - '/profile/:id/edit' - Handles profile edit form submission.
-
-teamRouter.post(':id/edit', routeGuard, (req, res, next) => {
+teamRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  Team.findByIdAndUpdate(id)
+  //   Team.findByIdAndUpdate(id)
+  Team.findOneAndUpdate({ _id: id, creator: req.user._id })
     .then(() => {
-      console.log('check');
-      res.redirect(`/team/${team._id}`);
+      res.redirect(`/team/${id}`);
     })
     .catch((error) => {
       next(error);
     });
 });
 
-// POST - '/team/:id/delete' - handles delete form submission ❌
-teamRouter.post('team/:id/delete', routeGuard, (req, res, next) => {
+// POST - '/team/:id/delete' - handles delete form submission ✅
+teamRouter.post('/:id/delete', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Team.findOneAndDelete({ _id: id, creator: req.user._id })
     .then(() => {
