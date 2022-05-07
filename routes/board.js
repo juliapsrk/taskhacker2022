@@ -18,15 +18,16 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
   let board;
   Board.create({
     name: req.body.name,
-    creator: req.user._id,
-    team: req._id
+    creator: req.user._id
   })
     .then((boardDocument) => {
       board = boardDocument;
+      return User.findById(req.user._id).populate('teams');
       return board.findByAndUpdate(req.user._id, {
         $push: { boards: board._id }
       });
     })
+    .then(() => {})
     .then(() => {
       res.redirect(`/board/${board._id}`);
     })
