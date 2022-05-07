@@ -50,13 +50,16 @@ teamRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Team.findById(id)
     .populate('creator')
+    .populate('boards')
     .then((team) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(team.creator._id);
 
       req.session.teamId = team._id;
+      console.log('team', team);
       res.render('team-single', { team, userIsOwner });
     })
+
     .catch((error) => {
       console.log(error);
       next(new Error('TEAM_NOT_FOUND'));
