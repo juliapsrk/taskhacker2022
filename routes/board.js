@@ -23,7 +23,7 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
   })
     .then((boardDocument) => {
       board = boardDocument;
-      return board.findByAndUpdate(req.user._id, {
+      return Board.findByAndUpdate(req.user._id, {
         $push: { boards: board._id }
       });
     })

@@ -6,7 +6,7 @@ const boardSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 100,
-    required: true,
+    // required: true,
     unique: true
   },
   creator: {
@@ -16,7 +16,7 @@ const boardSchema = new mongoose.Schema({
   },
   team: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: 'Team'
   }
 });

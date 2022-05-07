@@ -19,26 +19,15 @@ Name: taskhacker2022
 
 - task/productivity manager
 
-- user can sign up and create a profile
+- user can sign up and create a profile ✅
 
-- user can create new team and/or join existing team
+- user can create new team and/or join existing team ✅
 
 - user can create tasks (text + images)
 - user can edit and delete tasks
 - user can change status of task
 
-- user can (edit? and) delete profile
-
-## Work division
-
-Together
-
-- models
-
-Individual
-
-- sign up flow (with views)
-- task creation (with views)
+- user can edit profile ✅
 
 ## Pages
 
@@ -124,11 +113,11 @@ Task
 
 User
 
-- name: String, required ❌
-- email: String, required ❌
-- passwordHashAndSalt: String, required ❌
-- picture: String ❌
-- team id: objectId ❌
+- name: String, required ✅
+- email: String, required ✅
+- passwordHashAndSalt: String, required ✅
+- picture: String ✅
+- team id: objectId ✅
 
 email nodemailer invite users to team, id query.params
 
@@ -146,8 +135,8 @@ email nodemailer invite users to team, id query.params
 
 Team
 
-- team id: objectId ❌
-- name: String, required ❌
+- team id: objectId ✅
+- name: String, required ✅
 <!-- NO ARRAY OF USERS DON'T DO IT -->
 
 Board (a collection of tasks)
