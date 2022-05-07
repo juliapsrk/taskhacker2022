@@ -1,7 +1,7 @@
-{{#each tasks}}
+{{!-- {{#each tasks}}
   {{!-- {{> task}} --}}
 
-  <a href="/task/{{_id}}" class="task-item">
+{{!-- <a href="/task/{{_id}}" class="task-item">
     {{#if picture}}
       <img src="{{picture}}" />
     {{/if}}
@@ -16,4 +16,8 @@
 
   </a>
 
-{{/each}}
+{{/each}} --}}
+
+<a href="/task/{{_id}}">
+  <p>{{name}}</p>
+</a>
