@@ -83,12 +83,14 @@ User
 
 Team
 
+- GET - '/team/:id' - renders team page with members and list of kanban boards ✅
+
 - GET - '/team/create' - renders team creation page ✅
 - POST - '/team/create' - handles new team creation ✅
 
-- GET - '/team/:id' - renders team page with members and list of kanban boards ✅
 - GET - '/team/:id/edit' - loads team from database, renders team edit page ✅
 - POST - '/team/:id/edit' - handles edit form submission ✅
+
 - POST - '/team/:id/delete' - handles delete form submission ✅
 
 - GET - '/team/request-to-join' - renders team request-to-join list of people ❌
@@ -99,10 +101,10 @@ Board
 
 - POST - '/board/create' - handles new board creation ✅
 
-- GET - '/board/:id/edit' - loads kanban board from database, renders board edit page ❌
-- POST - '/board/:id/edit' - handles edit form submission ❌
+- GET - '/board/:id/edit' - loads kanban board from database, renders board edit page ✅
+- POST - '/board/:id/edit' - handles edit form submission ✅
 
-- POST - '/board/:id/delete' - handles delete form submission ❌
+- POST - '/board/:id/delete' - handles delete form submission ✅
 
 Task
 
@@ -113,6 +115,7 @@ Task
 
 - GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
 - POST - '/task/:id/edit' - handles edit form submission ❌
+
 - POST - '/task/:id/delete' - handles delete form submission ❌
 
 ## Models

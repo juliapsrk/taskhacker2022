@@ -1,42 +1,53 @@
-<h2>{{board.name}}</h2>
-
+{{!-- 
 
 <p>{{task.description}}</p>
-<small>{{task.createdAt}}</small>
+<small>{{task.createdAt}}</small> --}}
 
-<br />
+{{!-- <br /> --}}
 
-<a href="/team/{{team.creator._id}}">{{team.creator.name}}</a>
-<a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a>
+{{!-- <a href="/team/{{team.creator._id}}">{{team.creator.name}}</a>
+<a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a> --}}
 
-<a href="/task/{{task._id}}/edit">Edit Task</a>
+{{!-- <a href="/task/{{task._id}}/edit">Edit Task</a> --}}
 
-<form method="POST" action="/task/{{task._id}}/delete">
+{{!-- <form method="POST" action="/task/{{task._id}}/delete">
   <button>Delete Task</button>
-</form>
+</form> --}}
 
-{{!-- <div class="row">
-  <div class="col-md-6">
-    <form action="/movies/create" method="post" enctype="multipart/form-data"> {{!-- !!! --}}
-      <div class="form-group">
-        <label>Title:
-          <input type="text" name="title" class="form-control" />
-        </label>
-      </div>
- 
-      <div class="form-group">
-        <label>Description:
-          <textarea name="description" cols="30" rows="4" class="form-control"> </textarea>
-        </label>
-      </div>
- 
-      <div class="form-group">
-        <label>Attachments:
-          <input type="file" name="attachment" class="form-control-file" />
-        </label>
-      </div>
- 
-      <button type="submit" class="btn btn-primary">Create</button>
-    </form>
-  </div>
-</div> --}}
+<h2>{{board.name}}</h2>
+
+{{!-- {{#each tasks}}
+{{> task}}
+{{/each}} --}}
+
+<h3>Add a new task</h3>
+
+{{!-- <form action="/task/create" method="POST">
+  <label for="input-name">Task Name</label>
+  <input type="text" id="input-name" name="name" placeholder="Task Name" />
+  <button>Create task</button>
+</form> --}}
+
+
+<h3>Members:</h3>
+{{!-- {{#each users}}
+{{> user}}
+{{/each}}
+{{! doesn't exist yet }}
+<a href="/profile/{{team.user._id}}">{{team.user.name}}</a> --}}
+
+<h3>Creator:
+  {{!-- <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
+  </h3> --}}
+
+
+{{#if userIsOwner}}
+  {{!-- <a href="/team/{{team._id}}/edit"> --}}
+
+  <a href="/board/{{board._id}}/edit">Edit Board</a>
+
+  <form method="POST" action="/board/{{board._id}}/delete">
+  <button>Delete Board</button>
+  </form>
+{{/if}}
+
