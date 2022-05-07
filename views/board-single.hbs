@@ -1,14 +1,15 @@
 <h2>{{board.name}}</h2>
 <h3>{{board.name}}'s tasks:</h3>
 {{!-- order in kanban board style somehow at some point --}}
-{{#each board.tasks}}
+
+{{#each tasks}}
 {{> task}}
 {{/each}}
 
 <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
   <label for="input-name">Task title</label>
-  <input type="text" id="input-name" name="name" placeholder="Task title" />
+  <input type="text" id="input-name" name="title" placeholder="Task title" />
   <button>Add task</button>
 </form>
 

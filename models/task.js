@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const taskSchema = new mongoose.Schema(
   {
     title: {
-      type: String
-      // required: true
+      type: String,
+      required: true // made title required so it won't let us submit the task without tittle
     },
     description: {
       type: String

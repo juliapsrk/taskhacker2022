@@ -12,13 +12,14 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Board.findById(id)
     .populate('creator')
-    .populate('task')
+    .populate('tasks')
     .then((board) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(board.creator._id);
-      let task;
+      // let task; // no longer needed
       req.session.boardId = board._id;
-      res.render('board-single', { board, userIsOwner, task });
+      console.log(board.tasks);
+      res.render('board-single', { board, userIsOwner, tasks: board.tasks }); // made task plurarl. tasks: board.tasks
     })
     .catch((error) => {
       next(error);

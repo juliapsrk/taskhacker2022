@@ -4,9 +4,12 @@
 <h4>Description: {{task.description}}</h4>
 
 <a href="/task/{{task._id}}/edit">
-  <button>Edit Task</button>
+  Edit Task
 </a>
 
 <form method="POST" action="/task/{{task._id}}/delete">
   <button>Delete Task</button>
 </form>
+
+<a href="/board/{{boardId}}">Go Back</a>
+{{! button to functionaly allow user to go back }}

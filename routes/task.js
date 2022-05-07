@@ -13,7 +13,7 @@ taskRouter.get('/:id', (req, res, next) => {
     // .populate('creator')
     .then((task) => {
       console.log('task', task);
-      res.render('task-single', { task });
+      res.render('task-single', { task, boardId: req.session.boardId }); // this allowed us to go back to the board page where all tasks are stored
     })
     .catch((error) => {
       console.log(error);
@@ -51,16 +51,18 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
 
 // GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
 taskRouter.get('/:id/edit', routeGuard, (req, res, next) => {
-  console.log('test: ', req.board._id);
-  res.render('task-edit', { board: req.board._id });
+  res.render('task-edit', { board: req.session.boardId }); //added req.session.boardId to access tasks
 });
 
 // POST - '/task/:id/edit' - handles edit form submission ❌
 taskRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  const { title } = req.body.title;
-  const { description } = req.body.description;
-  Task.findOneAndUpdate({ _id: id }, { title, description })
+  const { taskName, taskDescription } = req.body;
+  // const { description } = req.body; // no longer needed, to be deleted
+  Task.findOneAndUpdate(
+    { _id: id },
+    { title: taskName, description: taskDescription }
+  )
     .then(() => {
       res.redirect(`/task/${id}`);
     })
@@ -74,7 +76,7 @@ taskRouter.post('/:id/delete', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Task.findOneAndDelete({ _id: id })
     .then(() => {
-      res.redirect('/');
+      res.redirect(`/board/${req.session.boardId}`);
     })
     .catch((error) => {
       next(error);
