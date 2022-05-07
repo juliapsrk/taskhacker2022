@@ -6,12 +6,10 @@ const boardSchema = new mongoose.Schema({
   name: {
     type: String,
     maxlength: 100,
-    // required: true,
     unique: true
   },
   creator: {
     type: mongoose.Schema.Types.ObjectId,
-    // required: true,
     ref: 'User'
   },
   team: {
@@ -23,5 +21,3 @@ const boardSchema = new mongoose.Schema({
 const Board = mongoose.model('Board', boardSchema);
 
 module.exports = Board;
-
-// test

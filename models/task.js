@@ -5,8 +5,8 @@ const mongoose = require('mongoose');
 const taskSchema = new mongoose.Schema(
   {
     title: {
-      type: String,
-      required: true
+      type: String
+      // required: true
     },
     description: {
       type: String
@@ -16,8 +16,8 @@ const taskSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      //enum: ['to do', 'in progress', 'done', 'wishlist'],
-      required: true
+      enum: ['to do', 'in progress', 'done', 'wishlist']
+      // required: true
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
@@ -26,12 +26,12 @@ const taskSchema = new mongoose.Schema(
     },
     board: {
       type: mongoose.Schema.Types.ObjectId,
-      required: true,
+      // required: true,
       ref: 'Board'
     },
     deadline: {
-      type: String,
-      required: true
+      type: String
+      // required: true
     }
   },
   { timestamps: true }

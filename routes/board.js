@@ -3,6 +3,7 @@ const Board = require('./../models/board.js');
 const routeGuard = require('./../middleware/route-guard.js');
 // const User = require('../models/user.js');
 const Team = require('../models/team.js');
+const User = require('../models/user.js');
 
 const boardRouter = new express.Router();
 
@@ -39,6 +40,7 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
         $push: { boards: board._id }
       });
     })
+    // somehow link board to its team
     .then(() => {
       res.redirect(`/board/${board._id}`);
     })
@@ -52,7 +54,7 @@ boardRouter.get('/:id/edit', routeGuard, (req, res, next) => {
   res.render('board-edit', { team: req._id });
 });
 
-// POST - '/board/:id/edit' - handles edit form submission ❌
+// POST - '/board/:id/edit' - handles edit form submission ✅
 boardRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;

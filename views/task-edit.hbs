@@ -1,0 +1,15 @@
+<h1>Edit Task</h1>
+
+<form method="POST" {{! enctype="multipart/form-data"}}>
+  <label for="input-name">Task Title</label>
+  <input
+    type="text"
+    id="input=name"
+    name="name"
+    placeholder="New task title"
+    value="{{task.title}}"
+  />
+
+  <button>Edit Task</button>
+
+</form>

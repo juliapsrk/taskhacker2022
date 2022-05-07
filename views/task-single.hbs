@@ -1,16 +1,11 @@
-{{#if task.picture}}
-  <img src="{{task.picture}}" alt="{{task.title}}" />
-{{/if}}
+<h1>Task Single</h1>
 
-<p>{{task.title}}</p>
-<p>{{task.description}}</p>
-<small>{{task.createdAt}}</small>
+<h2>Title: {{task.title}}</h2>
+<h4>Description: {{task.description}}</h4>
 
-<br />
-
-<a href="/profile/{{task.creator._id}}">{{task.creator.name}}</a>
-
-<a href="/task/{{task._id}}/edit">Edit Task</a>
+<a href="/task/{{task._id}}/edit">
+  <button>Edit Task</button>
+</a>
 
 <form method="POST" action="/task/{{task._id}}/delete">
   <button>Delete Task</button>

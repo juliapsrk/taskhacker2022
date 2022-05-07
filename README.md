@@ -55,11 +55,7 @@ Profile
 User Profile - Displays a page with user information, profile photos
 Edit Profile - displays a form that allows user to edit his profile
 
-<!-- Calendar
-Create an event - Displays a form that allows a user to create/submit a new post
-Single event - click from home page onto bigger view of post (single post view) with a little more info, show interactions
-Edit a event - Displays a form that allows a user to edit his post
-Delete a event - Allows user to delete his post -->
+Tasks?
 
 ## Route Handlers
 
@@ -83,38 +79,43 @@ User
 
 Team
 
-- GET - '/team/:id' - renders team page with members and list of kanban boards ✅
 - GET - '/team/create' - renders team creation page ✅
 - POST - '/team/create' - handles new team creation ✅
+- GET - '/team/:id' - renders team page with members and list of kanban boards ✅
 - GET - '/team/:id/edit' - loads team from database, renders team edit page ✅
 - POST - '/team/:id/edit' - handles edit form submission ✅
 - POST - '/team/:id/delete' - handles delete form submission ✅
+
 - GET - '/team/request-to-join' - renders team request-to-join list of people ❌
 
 Board
 
-- GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ✅
 - POST - '/board/create' - handles new board creation ✅
+- GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ✅
 - GET - '/board/:id/edit' - loads kanban board from database, renders board edit page ✅
 - POST - '/board/:id/edit' - handles edit form submission ✅
 - POST - '/board/:id/delete' - handles delete form submission ✅
 
 Task
 
-- GET - '/task/:id' - loads task from database, renders single task page with extended info ❌
-- GET - '/task/create' - renders task creation page ❌
-- POST - '/task/create' - handles new task creation ❌
+- POST - '/task/create' - handles new task creation ✅
+- GET - '/task/:id' - loads task from database, renders single task page with extended info ✅
 - GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
 - POST - '/task/:id/edit' - handles edit form submission ❌
-- POST - '/task/:id/delete' - handles delete form submission ❌
+- POST - '/task/:id/delete' - handles delete form submission ✅
+
+## Saturday MVP Check // Feedback
+
+- finalise routes and views
+- styling, keep as intuitive as possible
 
 ## Models
 
 User
 
-- name: String, required ✅
+- name: String ✅
 - email: String, required ✅
-- passwordHashAndSalt: String, required ✅
+- passwordHashAndSalt: String ✅
 - picture: String ✅
 - team id: objectId ✅
 
@@ -140,9 +141,9 @@ Team
 
 Board (a collection of tasks)
 
-- team id: objectId ❌
-- creator id: objectId ❌
-- name: String, required ❌
+- team id: objectId ✅
+- creator id: objectId ✅
+- name: String ✅
 <!-- allow access//admin rights to everyone on team -->
 
 Task
@@ -159,30 +160,9 @@ Task
 
 ## Wishlist
 
-Expenses Tracker
-
-Expenses
-
-Drag and drop feature - By clicking and holding on the task user will be able to drag it to the relevant status column (to do, in progress, completed, )
-/////////////////////////
-
-Calendar (view of events (& tasks?)) : - npm package for calendar/dates
-
-- creator id: objectId
-
-Event
-
-- creator id
-- calendar id
-- title
-- description
+- Expenses Tracker
+- Calendar Feature
 
 ## Notes
 
 Agile method -- trello form, different tables
-
-- to do
-- in progress
-- (in review)
-- done
-- (wishlist)

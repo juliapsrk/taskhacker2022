@@ -15,12 +15,17 @@
 </form> --}}
 
 <h2>{{board.name}}</h2>
-
-{{!-- {{#each tasks}}
+{{!-- order in kanban board style somehow at some point --}}
+{{#each tasks}}
 {{> task}}
-{{/each}} --}}
+{{/each}}
 
 <h3>Add a new task</h3>
+<form action="/task/create" method="POST">
+  <label for="input-name">Task title</label>
+  <input type="text" id="input-name" name="name" placeholder="Task title" />
+  <button>Add task</button>
+</form>
 
 {{!-- <form action="/task/create" method="POST">
   <label for="input-name">Task Name</label>
