@@ -33,7 +33,6 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
     description,
     status,
     creator: req.user._id
-    // board: req.board._id
   })
     .then((taskDocument) => {
       task = taskDocument;
@@ -49,12 +48,12 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
     });
 });
 
-// GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
+// GET - '/task/:id/edit' - loads task from database, renders task edit page ✅
 taskRouter.get('/:id/edit', routeGuard, (req, res, next) => {
   res.render('task-edit', { board: req.session.boardId }); //added req.session.boardId to access tasks
 });
 
-// POST - '/task/:id/edit' - handles edit form submission ❌
+// POST - '/task/:id/edit' - handles edit form submission ✅
 taskRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
   const { taskName, taskDescription } = req.body;

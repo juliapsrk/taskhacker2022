@@ -1,9 +1,7 @@
 const express = require('express');
 const Board = require('./../models/board.js');
 const routeGuard = require('./../middleware/route-guard.js');
-// const User = require('../models/user.js');
 const Team = require('../models/team.js');
-const User = require('../models/user.js');
 
 const boardRouter = new express.Router();
 
@@ -27,7 +25,6 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
 });
 
 // POST - '/board/create' - handles new board creation ✅
-// copy for task, adapt, test
 boardRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   //Call create method on Board model

@@ -100,8 +100,8 @@ Task
 
 - POST - '/task/create' - handles new task creation ✅
 - GET - '/task/:id' - loads task from database, renders single task page with extended info ✅
-- GET - '/task/:id/edit' - loads task from database, renders task edit page ❌
-- POST - '/task/:id/edit' - handles edit form submission ❌
+- GET - '/task/:id/edit' - loads task from database, renders task edit page ✅
+- POST - '/task/:id/edit' - handles edit form submission ✅
 - POST - '/task/:id/delete' - handles delete form submission ✅
 
 ## Saturday MVP Check // Feedback

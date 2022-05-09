@@ -27,7 +27,7 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
       });
     })
     .then((memberDocument) => {
-      // members = users (for future reference)
+      // members = users (for future reference) ?
       member = memberDocument;
       return Team.findByIdAndUpdate(team._id, {
         $push: { members: member._id }
