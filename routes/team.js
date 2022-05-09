@@ -27,7 +27,6 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
       });
     })
     .then((memberDocument) => {
-      // members = users (for future reference) ?
       member = memberDocument;
       return Team.findByIdAndUpdate(team._id, {
         $push: { members: member._id }
@@ -41,9 +40,14 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
     });
 });
 
-// GET - '/team/request-to-join' - renders team request-to-join list of people ❌
-// form with team name, search for it, post request on form url -- team.find
-// use name that user submitted to form in object
+// GET - '/team/search' - ❌
+// teamRouter.get('/team/search', routeGuard, (req, res, next) => {});
+// create handlebar view for search results
+// button with invisible form
+
+// POST - '/team/search' - ❌
+// search entire database (blank database search) and render on view only the team name
+// .then filter out result from req.body from input
 
 // GET - '/team/:id' - renders team page with members and list of boards ✅
 teamRouter.get('/:id', (req, res, next) => {
@@ -51,6 +55,7 @@ teamRouter.get('/:id', (req, res, next) => {
   Team.findById(id)
     .populate('creator')
     .populate('boards')
+    .populate('members')
     .then((team) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(team.creator._id);

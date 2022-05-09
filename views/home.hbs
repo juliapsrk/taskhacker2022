@@ -15,5 +15,8 @@
 
 {{! join a team }}
 <a href="/team/request-to-join">
-  <button>Join existing team</button>
+<form method="POST "action="/team/search">
+<input type="text" placeholder="Search for existing team">
+  <button type="submit">Search</button>
+</form>
 </a>

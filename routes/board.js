@@ -11,13 +11,19 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
   Board.findById(id)
     .populate('creator')
     .populate('tasks')
+    .populate('members')
     .then((board) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(board.creator._id);
-      // let task; // no longer needed
       req.session.boardId = board._id;
+      let teamId = req.session.teamId;
       console.log(board.tasks);
-      res.render('board-single', { board, userIsOwner, tasks: board.tasks }); // made task plurarl. tasks: board.tasks
+      res.render('board-single', {
+        board,
+        userIsOwner,
+        tasks: board.tasks,
+        teams: teamId
+      }); // made task plurarl. tasks: board.tasks
     })
     .catch((error) => {
       next(error);
@@ -29,13 +35,16 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   //Call create method on Board model
   let board;
+  let member;
   Board.create({
     name: req.body.name,
     creator: req.user._id,
-    team: req._id
+    members: req.user._id
   })
     .then((boardDocument) => {
       board = boardDocument;
+      console.log('board:', board);
+      // 'User' used to be 'Team':
       return Team.findByIdAndUpdate(req.session.teamId, {
         $push: { boards: board._id }
       });

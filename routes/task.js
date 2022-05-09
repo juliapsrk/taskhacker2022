@@ -50,6 +50,7 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
 
 // GET - '/task/:id/edit' - loads task from database, renders task edit page ✅
 taskRouter.get('/:id/edit', routeGuard, (req, res, next) => {
+  console.log('req.session:', req.session);
   res.render('task-edit', { board: req.session.boardId }); //added req.session.boardId to access tasks
 });
 

@@ -17,11 +17,9 @@
 </form>
 
 <h3>Members:</h3>
-{{!-- {{#each board.members}}
-{{> member}}
+{{#each board.members}}
+{{this.name}}
 {{/each}}
-{{! doesn't exist yet }}
-<a href="/profile/{{team.user._id}}">{{team.user.name}}</a> --}}
 
 <h3>Creator:</h3>
   <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a>
@@ -35,6 +33,5 @@
   </form>
 {{/if}}
 
-{{!-- button not working --}}
-{{!-- <a href="/team/{{teamId}}">Go Back</a> --}}
+<a href="/team/{{teams}}">Go Back</a>
 {{! button to functionaly allow user to go back }}

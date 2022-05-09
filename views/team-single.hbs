@@ -15,9 +15,8 @@
 
 
 <h3>Members:</h3>
-{{!-- members or users ? --}}
-{{#each members}}
-{{> member}}
+{{#each team.members}}
+{{this.name}}
 {{/each}}
 
 <a href="/profile/{{team.user._id}}">{{team.user.name}}</a>
@@ -34,3 +33,6 @@
   <button>Delete Team</button>
   </form>
 {{/if}}
+
+{{!-- needed? --}}
+<a href="/">Go Back</a>

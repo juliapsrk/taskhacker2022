@@ -86,7 +86,14 @@ Team
 - POST - '/team/:id/edit' - handles edit form submission ✅
 - POST - '/team/:id/delete' - handles delete form submission ✅
 
-- GET - '/team/request-to-join' - renders team request-to-join list of people ❌
+- GET - '/team/search' - renders team request-to-join list of people ❌
+
+  1. form: input for search bar, on submit, form searches database by team.name to find match
+     1.1. if match = y; join form, add user id to team object as new member
+     post form, action findbyIdAndUpdate
+     1.2. if no match = error message;
+
+- POST - '/team/search' - ❌
 
 Board
 
