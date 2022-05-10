@@ -41,11 +41,47 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
 });
 
 // GET - '/team/search' - ❌
-// teamRouter.get('/team/search', routeGuard, (req, res, next) => {});
-// create handlebar view for search results
-// button with invisible form
+teamRouter.get('/search', routeGuard, (req, res, next) => {
+  const { query } = req.query;
+  console.log(query);
+  // let team;
+  Team.findOne({ name: query })
+    .populate('creator')
+    .then((result) => {
+      console.log(result);
+      if (result.members.includes(String(req.user._id))) {
+        res.redirect(`/team/${result._id}`);
+        //res.render('search-results', result);
+      } else {
+        res.render('search-results', result);
+      }
+    })
+    .catch((error) => {
+      console.log(error);
+      next(new Error('TEAM_DOES_NOT_EXIST'));
+    });
+});
 
-// POST - '/team/search' - ❌
+// POST - '/:id/join' - ❌
+teamRouter.post('/:id/join', routeGuard, (req, res, next) => {
+  const { id } = req.params;
+  Team.findByIdAndUpdate(
+    id,
+    { $push: { members: req.user._id } },
+    { new: true }
+  )
+    .then((result) => {
+      console.log(req.user._id);
+      console.log(result);
+      return User.findByIdAndUpdate(req.user._id, { $push: { teams: id } });
+    })
+    .then(() => {
+      res.redirect(`/team/${id}`);
+    })
+    .catch((error) => {
+      next(error);
+    });
+});
 // search entire database (blank database search) and render on view only the team name
 // .then filter out result from req.body from input
 

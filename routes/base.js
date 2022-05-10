@@ -6,6 +6,7 @@ const router = express.Router();
 const routeGuard = require('./../middleware/route-guard');
 
 router.get('/', (req, res, next) => {
+  console.log(req.user ? req.user : 'nothing');
   const teamsIds = req.user ? req.user.teams : [];
   Team.find({ _id: { $in: teamsIds } })
     .then((teams) => {
