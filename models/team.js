@@ -16,7 +16,8 @@ const teamSchema = new mongoose.Schema({
   members: [
     {
       type: mongoose.Schema.Types.ObjectId,
-      ref: 'User'
+      ref: 'User',
+      unique: true
     }
   ],
   boards: [

@@ -11,7 +11,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
   Board.findById(id)
     .populate('creator')
     .populate('tasks')
-    .populate('members')
+    // .populate('members')
     .then((board) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(board.creator._id);
@@ -38,8 +38,8 @@ boardRouter.post('/create', routeGuard, (req, res, next) => {
   let member;
   Board.create({
     name: req.body.name,
-    creator: req.user._id,
-    members: req.user._id
+    creator: req.user._id
+    //members: req.user._id
   })
     .then((boardDocument) => {
       board = boardDocument;
