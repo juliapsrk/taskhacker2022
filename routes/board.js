@@ -11,7 +11,6 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
   Board.findById(id)
     .populate('creator')
     .populate('tasks')
-    // .populate('members')
     .then((board) => {
       let userIsOwner =
         req.user && String(req.user._id) === String(board.creator._id);
@@ -23,7 +22,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
         userIsOwner,
         tasks: board.tasks,
         teams: teamId
-      }); // made task plurarl. tasks: board.tasks
+      });
     })
     .catch((error) => {
       next(error);
@@ -33,18 +32,15 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
 // POST - '/board/create' - handles new board creation ✅
 boardRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
-  //Call create method on Board model
   let board;
   let member;
   Board.create({
     name: req.body.name,
     creator: req.user._id
-    //members: req.user._id
   })
     .then((boardDocument) => {
       board = boardDocument;
       console.log('board:', board);
-      // 'User' used to be 'Team':
       return Team.findByIdAndUpdate(req.session.teamId, {
         $push: { boards: board._id }
       });
@@ -66,7 +62,6 @@ boardRouter.get('/:id/edit', routeGuard, (req, res, next) => {
 boardRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
   const { name } = req.body;
-  //   Board.findByIdAndUpdate(id)
   Board.findOneAndUpdate({ _id: id, creator: req.user._id }, { name })
     .then(() => {
       res.redirect(`/board/${id}`);

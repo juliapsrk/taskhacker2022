@@ -13,7 +13,6 @@ const boardSchema = new mongoose.Schema({
     ref: 'User'
   },
   tasks: [
-    // this is to be able to store more than one task in one board
     {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'Task'
