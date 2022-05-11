@@ -86,14 +86,8 @@ Team
 - POST - '/team/:id/edit' - handles edit form submission ✅
 - POST - '/team/:id/delete' - handles delete form submission ✅
 
-- GET - '/team/search' - renders team request-to-join list of people ❌
-
-  1. form: input for search bar, on submit, form searches database by team.name to find match
-     1.1. if match = y; join form, add user id to team object as new member
-     post form, action findbyIdAndUpdate
-     1.2. if no match = error message;
-
-- POST - '/team/search' - ❌
+- GET - '/team/search' - renders team request-to-join list of people ✅
+- POST - '/:id/join' - ✅
 
 Board
 
@@ -128,40 +122,26 @@ User
 
 email nodemailer invite users to team, id query.params
 
-1. User1 registers and creates an account
-2. User1 decides to create a new team
-3. A new Team object is created in the Teams collection. The Team ObjectId is saved in the 'team' property for this User
-4. The user can now create a new board
-5. The team Id is also stored as a property of the board
-
-6. User2 registers and creates an account
-7. User2 decides to join an existing team -> It is prompted to ask "the existing member(s) of the team to follow some instructions (ideally, an "Add Team member button visibile for User1 somewhere in the app) -> The flow stops here
-8. User1 goes to this "Add Team member" button, which asks them to input an email address for the team member to add
-9. An email is sent to that address, in the email there is a link that contains the team Id (e.g. kanbantool.com?123456789 where 123456789 is the team ID)
-10. User2 clicks on the link and the team ID is used to perform a POST request and add the Team Id to the 'team' property of User2
-
 Team
 
 - team id: objectId ✅
 - name: String, required ✅
-<!-- NO ARRAY OF USERS DON'T DO IT -->
 
 Board (a collection of tasks)
 
 - team id: objectId ✅
 - creator id: objectId ✅
 - name: String ✅
-<!-- allow access//admin rights to everyone on team -->
 
 Task
 
-- board id ❌
-- creator id ❌
+- board id ✅
+- creator id ✅
   - createdAt -- timestamp ❌
   - deadline (user can set time for particular task) ❌
 - status (todo, in progress, done) ❌
-- title ❌
-- description (editable using summernote) ❌
+- title ✅
+- description (editable using summernote) ✅
   <!-- - color -->
   <!-- positioning of status done in HTML & CSS, add property for "done", "in progress", "done", in view hbs files: each, if done, then render tasks that have that property -->
 

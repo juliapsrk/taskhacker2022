@@ -1,16 +1,13 @@
 <h1>Task Single</h1>
 
-<h2>Title: {{task.title}}</h2>
+<h3>Status: {{task.status}}</h3>
+<h3>Title: {{task.title}}</h3>
 <h4>Description: {{task.description}}</h4>
-<h4>Status: {{task.status}}</h4>
 
-<a href="/task/{{task._id}}/edit">
-  Edit Task
-</a>
+<a href="/task/{{task._id}}/edit">Edit Task</a>
 
 <form method="POST" action="/task/{{task._id}}/delete">
   <button>Delete Task</button>
 </form>
 
 <a href="/board/{{boardId}}">Go Back</a>
-{{! button to functionaly allow user to go back }}

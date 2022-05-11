@@ -10,7 +10,6 @@ const taskRouter = new express.Router();
 taskRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Task.findById(id)
-    // .populate('creator')
     .then((task) => {
       console.log('task', task);
       res.render('task-single', { task, boardId: req.session.boardId }); // this allowed us to go back to the board page where all tasks are stored
@@ -26,7 +25,6 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   const { description } = req.body;
   const { status } = req.body;
-  //Call create method on Task model
   let task;
   Task.create({
     title,
