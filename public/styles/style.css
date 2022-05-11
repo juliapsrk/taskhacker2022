@@ -3,7 +3,8 @@
 }
 
 body {
-  max-width: 52em;
+  background-color: #e0e0e0;
+  width: 100%;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -18,12 +19,16 @@ a {
 
 nav {
   display: flex;
+  background-color: lightseagreen;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
 }
 
 nav a,
 nav button {
   padding: 1em 0;
-  border: 0;
+  border: 1em;
 }
 
 nav a:not(:last-child),
@@ -105,10 +110,11 @@ label {
 
 .profile-header {
   display: flex;
-  align-items: center;
+  align-items: space-between;
   gap: 2em;
 }
 
+.profile-header a,
 .profile-header img {
   width: 10em;
 }

@@ -10,7 +10,8 @@ $grey: hsl(0, 0, 90%);
 }
 
 body {
-  max-width: 52em;
+  background-color: #e0e0e0;
+  width: 100%;
   padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
@@ -25,10 +26,14 @@ a {
 
 nav {
   display: flex;
+  background-color: lightseagreen;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin: 0;
   a,
   button {
     padding: 1em 0;
-    border: 0;
+    border: 1em;
     &:not(:last-child) {
       margin-right: 1em;
     }
@@ -103,9 +108,10 @@ label {
 
 .profile-header {
   display: flex;
-  align-items: center;
+  align-items: space-between;
   gap: 2em;
 
+  a,
   img {
     width: 10em;
   }
