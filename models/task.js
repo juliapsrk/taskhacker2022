@@ -6,7 +6,7 @@ const taskSchema = new mongoose.Schema(
   {
     title: {
       type: String,
-      required: true // made title required so it won't let us submit the task without tittle
+      required: true
     },
     description: {
       type: String
@@ -16,8 +16,7 @@ const taskSchema = new mongoose.Schema(
     },
     status: {
       type: String,
-      enum: ['to do', 'in progress', 'done', 'wishlist']
-      // required: true
+      enum: ['To Do', 'In Progress', 'In Review', 'Done', 'Wishlist']
     },
     creator: {
       type: mongoose.Schema.Types.ObjectId,
@@ -26,12 +25,10 @@ const taskSchema = new mongoose.Schema(
     },
     board: {
       type: mongoose.Schema.Types.ObjectId,
-      // required: true,
       ref: 'Board'
     },
     deadline: {
       type: String
-      // required: true
     }
   },
   { timestamps: true }

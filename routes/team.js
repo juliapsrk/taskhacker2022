@@ -13,7 +13,6 @@ teamRouter.get('/create', routeGuard, (req, res) => {
 // POST - '/team/create' - handles new team creation ✅
 teamRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
-  // Call create method on Team model
   let team;
   let member;
   Team.create({
@@ -40,7 +39,7 @@ teamRouter.post('/create', routeGuard, (req, res, next) => {
     });
 });
 
-// GET - '/team/search' - ❌
+// GET - '/team/search' - ✅
 teamRouter.get('/search', routeGuard, (req, res, next) => {
   const { query } = req.query;
   console.log(query);
@@ -62,7 +61,7 @@ teamRouter.get('/search', routeGuard, (req, res, next) => {
     });
 });
 
-// POST - '/:id/join' - ❌
+// POST - '/:id/join' - ✅
 teamRouter.post('/:id/join', routeGuard, (req, res, next) => {
   const { id } = req.params;
   Team.findByIdAndUpdate(
@@ -82,8 +81,6 @@ teamRouter.post('/:id/join', routeGuard, (req, res, next) => {
       next(error);
     });
 });
-// search entire database (blank database search) and render on view only the team name
-// .then filter out result from req.body from input
 
 // GET - '/team/:id' - renders team page with members and list of boards ✅
 teamRouter.get('/:id', (req, res, next) => {

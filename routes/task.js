@@ -10,7 +10,6 @@ const taskRouter = new express.Router();
 taskRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   Task.findById(id)
-    // .populate('creator')
     .then((task) => {
       console.log('task', task);
       res.render('task-single', { task, boardId: req.session.boardId }); // this allowed us to go back to the board page where all tasks are stored
@@ -26,7 +25,6 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
   const { title } = req.body;
   const { description } = req.body;
   const { status } = req.body;
-  //Call create method on Task model
   let task;
   Task.create({
     title,
@@ -51,17 +49,22 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
 // GET - '/task/:id/edit' - loads task from database, renders task edit page ✅
 taskRouter.get('/:id/edit', routeGuard, (req, res, next) => {
   console.log('req.session:', req.session);
-  res.render('task-edit', { board: req.session.boardId }); //added req.session.boardId to access tasks
+  Task.findById(req.params.id).then((task) => {
+    // condition: create var containing all enums not equal to {{task.status}}
+    // pass variable to handlebars --> dynamic list tadah
+    // if(req.body.status !== 'current task status')
+    // const initialStatus = []
+    res.render('task-edit', { board: req.session.boardId, task });
+  });
 });
 
 // POST - '/task/:id/edit' - handles edit form submission ✅
 taskRouter.post('/:id/edit', routeGuard, (req, res, next) => {
   const { id } = req.params;
-  const { taskName, taskDescription } = req.body;
-  // const { description } = req.body; // no longer needed, to be deleted
+  const { taskName, taskDescription, status } = req.body;
   Task.findOneAndUpdate(
     { _id: id },
-    { title: taskName, description: taskDescription }
+    { title: taskName, description: taskDescription, status: status }
   )
     .then(() => {
       res.redirect(`/task/${id}`);
