@@ -1,9 +1,11 @@
 <p>Welcome to {{title}}</p>
 
-<h4>Teams you joined:</h4>
+{{#if user}}
+
+<h4>Your Teams</h4>
 <ul>
 {{#each teams}}
-<li>{{> team}}</li>
+  <li>{{> team}}</li>
 {{/each}}
 </ul>
 
@@ -14,8 +16,8 @@
 
 {{! join a team }}
 <form method="GET "action="/team/search">
-<input type="text" placeholder="Search for existing team" name="query">
-
-<button type="submit">Search</button>
-
+  <input type="text" placeholder="Search for existing team" name="query">
+  <button type="submit">Search</button>
 </form>
+
+{{/if}}

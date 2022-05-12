@@ -1,38 +1,36 @@
 <h2>{{team.name}}</h2>
 
-<h3>{{team.name}}'s boards</h3>
+<h3>Your Boards</h3>
 {{#each team.boards}}
 {{> board}}
 {{/each}}
 
-<h3>Create a new board</h3>
+<h4>Create a new board</h4>
 
 <form action="/board/create" method="POST">
-  <label for="input-name">Board Name</label>
+  {{!-- <label for="input-name">Board Name</label> --}}
   <input type="text" id="input-name" name="name" placeholder="Board Name" />
   <button>Create board</button>
 </form>
 
-
-<h3>Members:</h3>
+<div>
+<h5>Members:</h5>
+<ul>
 {{#each team.members}}
-{{this.name}}
+  <li>{{this.name}}</li>
 {{/each}}
+</ul>
+</div>
 
-<a href="/profile/{{team.user._id}}">{{team.user.name}}</a>
-
-<h3>Creator:
-  <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a>
-  </h3>
-
+<div>
+<h5>Creator:<a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a></h5>
+</div>
 
 {{#if userIsOwner}}
   <a href="/team/{{team._id}}/edit">Edit Team</a>
-
   <form method="POST" action="/team/{{team._id}}/delete">
   <button>Delete Team</button>
   </form>
 {{/if}}
 
-{{!-- needed? --}}
-<a href="/">Go Back</a>
+{{!-- <a href="/">Go Back</a> --}}
