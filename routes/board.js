@@ -8,6 +8,13 @@ const boardRouter = new express.Router();
 // GET - '/board/:id' - renders specific kanban board with tasks listed in kanban view with limited info ✅
 boardRouter.get('/:id', routeGuard, (req, res, next) => {
   const { id } = req.params;
+  // let status;
+  let isToDo = false;
+  let isInProgress = false;
+  let isInReview = false;
+  let isDone = false;
+  let isWishlist = false;
+  let boardFromDB;
   Board.findById(id)
     .populate('creator')
     .populate('tasks')
@@ -16,12 +23,55 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
         req.user && String(req.user._id) === String(board.creator._id);
       req.session.boardId = board._id;
       let teamId = req.session.teamId;
-      console.log(board.tasks);
+
+      boardFromDB = board;
+
+      let toDoTasks = [];
+      let inReviewTasks = [];
+      let doneTasks = [];
+      let wishlistTask = [];
+      let inProgressTasks = [];
+
+      for (const task of boardFromDB.tasks) {
+        let taskStatus = task.status;
+        task.cleanStatus = task.status.replace(/\s/g, '');
+        console.log(taskStatus);
+        if (taskStatus === 'To Do') {
+          task.isToDo = true;
+          toDoTasks.push(task);
+        } else if (taskStatus === 'In Progress') {
+          task.isInProgress = true;
+          inProgressTasks.push(task);
+        } else if (taskStatus === 'In Review') {
+          task.isInReview = true;
+          inReviewTasks.push(task);
+        } else if (taskStatus === 'Done') {
+          task.isDone = true;
+          doneTasks.push(task);
+        } else if (taskStatus === 'Wishlist') {
+          task.isWishlist = true;
+          wishlistTask.push(task);
+        }
+      }
+
+      boardFromDB.toDoTasks = toDoTasks;
+      boardFromDB.inProgressTasks = inProgressTasks;
+      boardFromDB.inReviewTasks = inReviewTasks;
+      boardFromDB.doneTasks = doneTasks;
+      boardFromDB.wishlistTask = wishlistTask;
+
+      console.log(boardFromDB.toDoTasks);
+
       res.render('board-single', {
-        board,
+        board: boardFromDB,
         userIsOwner,
         tasks: board.tasks,
-        teams: teamId
+        teams: teamId,
+        isToDo,
+        isInProgress,
+        isInReview,
+        isDone,
+        isWishlist
       });
     })
     .catch((error) => {

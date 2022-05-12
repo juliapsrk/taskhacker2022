@@ -122,3 +122,18 @@ label {
     width: 10em;
   }
 }
+
+.InReview {
+  position: absolute;
+  left: 0 px;
+  top: 100 px;
+  p {
+    color: yellow;
+  }
+}
+
+.Done {
+  position: absolute;
+  left: 300 px;
+  top: 100px;
+}

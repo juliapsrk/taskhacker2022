@@ -126,6 +126,7 @@ label {
   width: 10em;
 }
 
+<<<<<<< HEAD
 .col {
   display: flex;
   flex-wrap: wrap;
@@ -135,6 +136,22 @@ label {
   gap: 10px 20px;
   row-gap: 30px;
   column-gap: 20px;
+=======
+.InReview {
+  position: absolute;
+  left: 0 px;
+  top: 100 px;
+}
+
+.InReview p {
+  color: yellow;
+}
+
+.Done {
+  position: absolute;
+  left: 300 px;
+  top: 100px;
+>>>>>>> 07747b02ac5ffdc17547565c91b8523ab47d1c52
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -1,18 +1,56 @@
-{{!-- <h2>{{board.name}}</h2> --}}
+<div class="container-fluid">
+  <h2>{{board.name}}</h2>
+</div>
 
-<h2>{{board.name}}'s tasks:</h2>
 
-{{#each tasks}}
-{{> task}}
-{{/each}}
+<div class="container">
+  <div class="row">
 
-<h3>Add a new task</h3>
+ <div class="card col"> 
+    <p> <strong>To Do</strong></p>
+    {{#each board.inReviewTasks}}
+      {{> task}}
+    {{/each}}
+  </div>
+
+ <div class="card col"> 
+    <p><strong>In Progress</strong></p>
+    {{#each board.inReviewTasks}}
+      {{> task}}
+    {{/each}}
+  </div>
+
+ <div class="card col"> 
+    <p><strong>In Review</strong></p>
+    {{#each board.inReviewTasks}}
+      {{> task}}
+    {{/each}}
+  </div>
+
+ <div class="card col"> 
+    <p><strong>Done</strong></p>
+   {{#each board.doneTasks}}
+     {{> task}}
+   {{/each}}
+  </div>
+
+ <div class="card col"> 
+    <p><strong>Wishlist</strong></p>
+   {{#each board.doneTasks}}
+     {{> task}}
+   {{/each}}
+  </div>
+
+  </div>
+</div>
+
+
+{{!-- <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
   <label for="input-name">Task title</label>
   <input type="text" id="input-name" name="title" placeholder="Task title" />
   <label for="input-name">Task description</label>
   <input type="text" id="input-name" name="description" placeholder="Task description" />
-
   <label for="input-name">Task status</label>
   <select name="status" id="input-status" placeholder="Task status">
     <option value="To Do">To Do</option>
@@ -22,25 +60,24 @@
     <option value="Wishlist">Wishlist</option>
   </select>
 
-
   <button>Add task</button>
+
 </form>
 
-<h3>Members:</h3>
-{{#each board.members}}
-{{this.name}}
-{{/each}}
+<div>
+<h3>Creator: <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a></h3>
+</div>
 
-<h3>Creator:</h3>
-  <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a>
-  </h3>
-
+<div>
 {{#if userIsOwner}}
   <a href="/board/{{board._id}}/edit">Edit Board</a>
-
   <form method="POST" action="/board/{{board._id}}/delete">
   <button>Delete Board</button>
   </form>
 {{/if}}
+</div>
 
-<a href="/team/{{teams}}">Go Back</a>
+
+<a href="/team/{{teams}}">Go Back</a> 
+
+--}}
