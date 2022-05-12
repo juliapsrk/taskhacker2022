@@ -12,7 +12,7 @@ taskRouter.get('/:id', (req, res, next) => {
   Task.findById(id)
     .then((task) => {
       console.log('task', task);
-      res.render('task-single', { task, boardId: req.session.boardId }); // this allowed us to go back to the board page where all tasks are stored
+      res.render('task-single', { task, boardId: req.session.boardId });
     })
     .catch((error) => {
       console.log(error);
