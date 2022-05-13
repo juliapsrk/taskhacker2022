@@ -43,7 +43,6 @@ nav button:first-child {
 
 .title {
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
 }
@@ -126,17 +125,6 @@ label {
   width: 10em;
 }
 
-<<<<<<< HEAD
-.col {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  gap: 10px 20px;
-  row-gap: 30px;
-  column-gap: 20px;
-=======
 .InReview {
   position: absolute;
   left: 0 px;
@@ -151,7 +139,6 @@ label {
   position: absolute;
   left: 300 px;
   top: 100px;
->>>>>>> 07747b02ac5ffdc17547565c91b8523ab47d1c52
 }
 
 /*# sourceMappingURL=style.css.map */

@@ -18,17 +18,17 @@ profileRouter.get('/edit', routeGuard, (req, res, next) => {
 profileRouter.post(
   '/edit',
   routeGuard,
-  // fileUpload.single('picture'),//
+  fileUpload.single('picture'),
   (req, res, next) => {
     const id = req.user._id;
     const { name, email } = req.body;
     let picture;
-    // if (req.file) {
-    //   picture = req.file.path;
-    // }
+    if (req.file) {
+      picture = req.file.path;
+    }
     User.findByIdAndUpdate(id, { name, email, picture })
       .then(() => {
-        console.log('picture');
+        console.log('picture', picture);
         res.redirect(`/profile/${id}`);
       })
       .catch((error) => {

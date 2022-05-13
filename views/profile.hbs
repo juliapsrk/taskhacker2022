@@ -1,14 +1,10 @@
-<header class="profile-header">
-    {{#if profile.picture}}
-    <img src="{{profile.picture}}" alt="{{profile.name}}" />
-    {{/if}}
-    <h1>{{profile.name}}</h1>
-</header>
+{{! <header class="profile-header"> }}
+{{#if user.picture}}
+  <img src="{{user.picture}}" alt="{{profile.name}}" />
+{{/if}}
+<h1>{{profile.name}}</h1>
+{{! </header> }}
 
 {{#if userIsOwner}}
-<a href="/profile/edit">Edit Profile</a>
+  <a href="/profile/edit">Edit Profile</a>
 {{/if}}
-
-{{#each tasks}}
-{{> task}}
-{{/each}}
