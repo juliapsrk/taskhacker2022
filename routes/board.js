@@ -29,7 +29,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
       let toDoTasks = [];
       let inReviewTasks = [];
       let doneTasks = [];
-      let wishlistTask = [];
+      let wishlistTasks = [];
       let inProgressTasks = [];
 
       for (const task of boardFromDB.tasks) {
@@ -50,7 +50,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
           doneTasks.push(task);
         } else if (taskStatus === 'Wishlist') {
           task.isWishlist = true;
-          wishlistTask.push(task);
+          wishlistTasks.push(task);
         }
       }
 
@@ -58,7 +58,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
       boardFromDB.inProgressTasks = inProgressTasks;
       boardFromDB.inReviewTasks = inReviewTasks;
       boardFromDB.doneTasks = doneTasks;
-      boardFromDB.wishlistTask = wishlistTask;
+      boardFromDB.wishlistTasks = wishlistTasks;
 
       console.log(boardFromDB.toDoTasks);
 

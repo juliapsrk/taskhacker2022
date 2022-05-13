@@ -18,7 +18,7 @@ a {
 
 nav {
   display: flex;
-  background-color: lightseagreen;
+  background-color: #77bd73;
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
@@ -75,11 +75,6 @@ p:not(:last-child) {
   object-fit: cover;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
-
 input:not([type='checkbox']),
 input:not([type='radio']),
 input:not([type='range']),
@@ -88,7 +83,7 @@ select,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #78be74;
   border-radius: 0;
   margin-bottom: 1em;
   font: inherit;

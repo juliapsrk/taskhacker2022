@@ -1,5 +1,6 @@
-$font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$grey: hsl(0, 0, 90%);
+// $font-sans: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+// $grey: hsl(0, 0, 90%);
+$grey: hsl(117°, 36%, 60%);
 
 * {
   &,
@@ -11,6 +12,7 @@ $grey: hsl(0, 0, 90%);
 
 body {
   background-color: #e0e0e0;
+  // background-color: #ede0c5;
   width: 100%;
   padding: 0 1em;
   margin: 0 auto;
@@ -26,7 +28,8 @@ a {
 
 nav {
   display: flex;
-  background-color: lightseagreen;
+  // background-color: lightseagreen;
+  background-color: #77bd73;
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
@@ -74,10 +77,12 @@ p {
   object-fit: cover;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
-}
+// form {
+//   display: flex;
+//   flex-direction: column;
+//   flex-wrap: wrap;
+//   align-items: flex-start;
+// }
 
 input:not([type='checkbox']),
 input:not([type='radio']),
