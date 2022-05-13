@@ -3,12 +3,14 @@
 }
 
 body {
-  background-color: #e0e0e0;
+  display: flex;
+  flex-direction: column;
+  background-color: #daf7f6;
   width: 100%;
-  padding: 0 1em;
   margin: 0 auto;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 2;
+  min-height: 100vh;
 }
 
 a {
@@ -18,7 +20,7 @@ a {
 
 nav {
   display: flex;
-  background-color: #77bd73;
+  background-color: lightseagreen;
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
@@ -38,6 +40,16 @@ nav button:not(:last-child) {
 nav a:first-child,
 nav button:first-child {
   margin-right: auto;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  background-color: lightseagreen;
+  font-size: 15px;
+  margin-top: auto;
+  padding: 10px;
 }
 
 .title {
