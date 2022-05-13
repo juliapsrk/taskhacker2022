@@ -10,8 +10,7 @@ body {
   background-color: #e0e0e0;
   width: 100%;
   margin: 0 auto;
-  font-family: sans-serif;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   line-height: 2;
 }
 
@@ -22,7 +21,11 @@ a {
 
 nav {
   display: flex;
+<<<<<<< HEAD
   background-color: #9db75b;
+=======
+  background-color: #77bd73;
+>>>>>>> 2f922003f7e787997a2c6a891686946e6b2b1da2
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
@@ -68,14 +71,18 @@ p:not(:last-child) {
   margin-bottom: 1rem;
 }
 
-img {
-  width: 100%;
-  max-width: 100%;
+.pictureSmall {
+  width: 2em;
+  height: 2em;
+  margin: 1em;
+  object-fit: cover;
 }
 
-form {
-  display: flex;
-  flex-direction: column;
+.pictureLarge {
+  width: 10em;
+  height: 10em;
+  margin-left: 1em;
+  object-fit: cover;
 }
 
 form:hover {
@@ -90,7 +97,7 @@ select,
 button,
 .btn {
   padding: 1em;
-  border: 1px solid #e6e6e6;
+  border: 1px solid #78be74;
   border-radius: 0;
   margin-bottom: 1em;
   font: inherit;
@@ -115,13 +122,6 @@ label {
 
 .task-item p {
   margin: 0;
-}
-
-.task-item img {
-  width: 6em;
-  height: 6em;
-  margin-right: 1em;
-  object-fit: cover;
 }
 
 .profile-header {

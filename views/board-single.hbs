@@ -3,54 +3,68 @@
 </div>
 
 
-<div class="container">
+<div class="container-lg">
   <div class="row">
 
- <div class="card col first"> 
+  <div class="card col first"> 
     <p> <strong>To Do</strong></p>
     {{#each board.toDoTasks}}
-      {{> task}}
+      <div class="card">
+        {{> task}}
+      </div>
     {{/each}}
   </div>
 
- <div class="card col second"> 
+  <div class="card col second"> 
     <p><strong>In Progress</strong></p>
     {{#each board.inProgressTasks}}
-      {{> task}}
+      <div class="card">
+        {{> task}}
+      </div>
     {{/each}}
   </div>
 
- <div class="card col third"> 
+  <div class="card col third"> 
     <p><strong>In Review</strong></p>
     {{#each board.inReviewTasks}}
-      {{> task}}
+      <div class="card">
+        {{> task}}
+      </div>
     {{/each}}
   </div>
 
- <div class="card col fourth"> 
+  <div class="card col fourth"> 
     <p><strong>Done</strong></p>
-   {{#each board.doneTasks}}
-     {{> task}}
-   {{/each}}
+    {{#each board.doneTasks}}
+      <div class="card">
+        {{> task}}
+      </div>
+    {{/each}}
   </div>
 
- <div class="card col fith"> 
+  <div class="card col fifth"> 
     <p><strong>Wishlist</strong></p>
-   {{#each board.wishlistTask}}
-     {{> task}}
+      {{#each board.wishlistTasks}}
+        <div class="card">
+      {{> task}}
+    </div>
    {{/each}}
   </div>
 
   </div>
 </div>
 
-
- <h3>Add a new task</h3>
+<div class="mb-3">
+<div class="col">
+  
+<h3>Add a new task</h3>
 <form action="/task/create" method="POST">
-  <label for="input-name">Task title</label>
+<div>
   <input type="text" id="input-name" name="title" placeholder="Task title" />
-  <label for="input-name">Task description</label>
   <input type="text" id="input-name" name="description" placeholder="Task description" />
+</div>
+
+<div class="col">
   <label for="input-name">Task status</label>
   <select name="status" id="input-status" placeholder="Task status">
     <option value="To Do">To Do</option>
@@ -59,10 +73,10 @@
     <option value="Done">Done</option>
     <option value="Wishlist">Wishlist</option>
   </select>
-
   <button>Add task</button>
-
+</div>
 </form>
+</div>
 
 <div>
 <h3>Creator: <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a></h3>
@@ -77,6 +91,5 @@
 {{/if}}
 </div>
 
-
 <a href="/team/{{teams}}">Go Back</a> 
-
+</div>

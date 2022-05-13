@@ -50,10 +50,6 @@ taskRouter.post('/create', routeGuard, (req, res, next) => {
 taskRouter.get('/:id/edit', routeGuard, (req, res, next) => {
   console.log('req.session:', req.session);
   Task.findById(req.params.id).then((task) => {
-    // condition: create var containing all enums not equal to {{task.status}}
-    // pass variable to handlebars --> dynamic list tadah
-    // if(req.body.status !== 'current task status')
-    // const initialStatus = []
     res.render('task-edit', { board: req.session.boardId, task });
   });
 });

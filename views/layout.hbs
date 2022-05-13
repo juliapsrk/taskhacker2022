@@ -14,12 +14,21 @@
     />
     <link rel="stylesheet" href="/styles/style.css" />
     {{#each pageStyles}} <link rel="stylesheet" href={{style}} /> {{/each}}
+
   </head>
   <body>
     <nav>
       <a href="/">Home</a>
       {{#if user}}
-        <a href="/profile/{{user._id}}">{{user.name}}'s Profile</a>
+        <a href="/profile/{{user._id}}">
+          {{#if user.picture}}
+            <img
+              class="pictureSmall"
+              src="{{user.picture}}"
+              alt="Profile picture"
+            />
+          {{/if}}
+          {{user.name}}'s Profile</a>
         <form action="/authentication/sign-out" method="POST">
           <button>Sign Out</button>
         </form>
