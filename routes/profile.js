@@ -14,12 +14,13 @@ profileRouter.get('/edit', routeGuard, (req, res, next) => {
 });
 
 // POST - '/profile/:id/edit' - Handles profile edit form submission.
-
 profileRouter.post(
   '/edit',
   routeGuard,
   fileUpload.single('picture'),
   (req, res, next) => {
+    console.log('req.body:', req.body);
+    console.log('req.file:', req.file);
     const id = req.user._id;
     const { name, email } = req.body;
     let picture;
@@ -38,7 +39,6 @@ profileRouter.post(
 );
 
 // GET - '/profile/:id' - Loads user with params.id from collection, renders profile page.
-
 profileRouter.get('/:id', (req, res, next) => {
   const { id } = req.params;
   let user;

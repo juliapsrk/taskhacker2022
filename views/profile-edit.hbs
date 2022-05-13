@@ -1,6 +1,6 @@
 <h1>Edit Profile</h1>
 
-<form method="POST">
+<form method="POST" enctype="multipart/form-data">
   <label for="input-name">Name</label>
   <input
     type="text"
@@ -23,7 +23,7 @@
     <img src="{{user.picture}}" alt="Profile picture" />
   {{/if}}
   <label for="input-picture">Add or update your profile picture</label>
-  <input type="file" id="input-picture" accept="image/*" name="picture" />
+  <input id="input-picture" type="file" accept="image/*" name="picture" />
 
   <button>Edit profile</button>
 
