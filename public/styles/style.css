@@ -2,10 +2,13 @@
   box-sizing: border-box;
 }
 
+main {
+  padding: 0 1em;
+}
+
 body {
   background-color: #e0e0e0;
   width: 100%;
-  padding: 0 1em;
   margin: 0 auto;
   font-family: sans-serif;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -19,31 +22,33 @@ a {
 
 nav {
   display: flex;
-  background-color: lightseagreen;
+  background-color: #9db75b;
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
 }
 
 nav a,
+nav p,
 nav button {
   padding: 1em 0;
   border: 1em;
 }
 
 nav a:not(:last-child),
+nav p:not(:last-child),
 nav button:not(:last-child) {
   margin-right: 1em;
 }
 
 nav a:first-child,
+nav p:first-child,
 nav button:first-child {
   margin-right: auto;
 }
 
 .title {
   display: flex;
-  flex-direction: column;
   align-items: center;
   text-align: center;
 }
@@ -71,6 +76,10 @@ img {
 form {
   display: flex;
   flex-direction: column;
+}
+
+form:hover {
+  color: #0d6efd;
 }
 
 input:not([type='checkbox']),
@@ -124,34 +133,6 @@ label {
 .profile-header a,
 .profile-header img {
   width: 10em;
-}
-
-<<<<<<< HEAD
-.col {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-content: center;
-  align-items: center;
-  gap: 10px 20px;
-  row-gap: 30px;
-  column-gap: 20px;
-=======
-.InReview {
-  position: absolute;
-  left: 0 px;
-  top: 100 px;
-}
-
-.InReview p {
-  color: yellow;
-}
-
-.Done {
-  position: absolute;
-  left: 300 px;
-  top: 100px;
->>>>>>> 07747b02ac5ffdc17547565c91b8523ab47d1c52
 }
 
 /*# sourceMappingURL=style.css.map */

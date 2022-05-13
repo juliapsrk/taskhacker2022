@@ -12,7 +12,8 @@ router.get('/', (req, res, next) => {
     .then((teams) => {
       res.render('home', {
         title: 'TaskHacker 2022',
-        teams /*, pageStyles: [{ style: '/styles/SCSSNAMEHERE.css' }]*/ // only change name on capital letters for page we want to style, example home
+        teams,
+        pageStyles: [{ style: '/styles/home.css' }] // only change name on capital letters for page we want to style, example home
       });
     })
     .catch((error) => {

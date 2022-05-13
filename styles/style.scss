@@ -9,10 +9,14 @@ $grey: hsl(0, 0, 90%);
   }
 }
 
+main {
+  padding: 0 1em;
+}
+
 body {
   background-color: #e0e0e0;
   width: 100%;
-  padding: 0 1em;
+
   margin: 0 auto;
   font-family: sans-serif;
   font-family: $font-sans;
@@ -26,7 +30,7 @@ a {
 
 nav {
   display: flex;
-  background-color: lightseagreen;
+  background-color: rgb(157, 183, 91);
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
@@ -68,6 +72,10 @@ img {
 form {
   display: flex;
   flex-direction: column;
+}
+
+form:hover {
+  color: #0d6efd;
 }
 
 input:not([type='checkbox']),
@@ -123,17 +131,17 @@ label {
   }
 }
 
-.InReview {
-  position: absolute;
-  left: 0 px;
-  top: 100 px;
-  p {
-    color: yellow;
-  }
-}
+// .InReview {
+//   position: absolute;
+//   left: 0 px;
+//   top: 100 px;
+//   p {
+//     color: yellow;
+//   }
+// }
 
-.Done {
-  position: absolute;
-  left: 300 px;
-  top: 100px;
-}
+// .Done {
+//   position: absolute;
+//   left: 300 px;
+//   top: 100px;
+// }

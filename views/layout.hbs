@@ -16,7 +16,6 @@
     {{#each pageStyles}} <link rel="stylesheet" href={{style}} /> {{/each}}
   </head>
   <body>
-
     <nav>
       <a href="/">Home</a>
       {{#if user}}
@@ -30,7 +29,7 @@
       {{/if}}
     </nav>
 
-    {{{body}}}
+    <main>{{{body}}}</main>
 
     <script src="/scripts/script.js"></script>
     <script

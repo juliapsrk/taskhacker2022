@@ -6,37 +6,37 @@
 <div class="container">
   <div class="row">
 
- <div class="card col"> 
+ <div class="card col first"> 
     <p> <strong>To Do</strong></p>
-    {{#each board.inReviewTasks}}
+    {{#each board.toDoTasks}}
       {{> task}}
     {{/each}}
   </div>
 
- <div class="card col"> 
+ <div class="card col second"> 
     <p><strong>In Progress</strong></p>
-    {{#each board.inReviewTasks}}
+    {{#each board.inProgressTasks}}
       {{> task}}
     {{/each}}
   </div>
 
- <div class="card col"> 
+ <div class="card col third"> 
     <p><strong>In Review</strong></p>
     {{#each board.inReviewTasks}}
       {{> task}}
     {{/each}}
   </div>
 
- <div class="card col"> 
+ <div class="card col fourth"> 
     <p><strong>Done</strong></p>
    {{#each board.doneTasks}}
      {{> task}}
    {{/each}}
   </div>
 
- <div class="card col"> 
+ <div class="card col fith"> 
     <p><strong>Wishlist</strong></p>
-   {{#each board.doneTasks}}
+   {{#each board.wishlistTask}}
      {{> task}}
    {{/each}}
   </div>
@@ -45,7 +45,7 @@
 </div>
 
 
-{{!-- <h3>Add a new task</h3>
+ <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
   <label for="input-name">Task title</label>
   <input type="text" id="input-name" name="title" placeholder="Task title" />
@@ -80,4 +80,3 @@
 
 <a href="/team/{{teams}}">Go Back</a> 
 
---}}
