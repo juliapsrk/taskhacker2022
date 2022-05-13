@@ -5,8 +5,8 @@
 
 <div class="container-lg">
   <div class="row">
-  
-  <div class="card col"> 
+
+  <div class="card col first"> 
     <p> <strong>To Do</strong></p>
     {{#each board.toDoTasks}}
       <div class="card">
@@ -15,7 +15,7 @@
     {{/each}}
   </div>
 
-  <div class="card col"> 
+  <div class="card col second"> 
     <p><strong>In Progress</strong></p>
     {{#each board.inProgressTasks}}
       <div class="card">
@@ -24,7 +24,7 @@
     {{/each}}
   </div>
 
-  <div class="card col"> 
+  <div class="card col third"> 
     <p><strong>In Review</strong></p>
     {{#each board.inReviewTasks}}
       <div class="card">
@@ -33,7 +33,7 @@
     {{/each}}
   </div>
 
-  <div class="card col"> 
+  <div class="card col fourth"> 
     <p><strong>Done</strong></p>
     {{#each board.doneTasks}}
       <div class="card">
@@ -42,7 +42,7 @@
     {{/each}}
   </div>
 
-  <div class="card col"> 
+  <div class="card col fifth"> 
     <p><strong>Wishlist</strong></p>
       {{#each board.wishlistTasks}}
         <div class="card">
@@ -56,6 +56,7 @@
 
 <div class="mb-3">
 <div class="col">
+  
 <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
 <div>

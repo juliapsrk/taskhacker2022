@@ -64,6 +64,7 @@ boardRouter.get('/:id', routeGuard, (req, res, next) => {
 
       res.render('board-single', {
         board: boardFromDB,
+        pageStyles: [{ style: '/styles/card.css' }],
         userIsOwner,
         tasks: board.tasks,
         teams: teamId,
