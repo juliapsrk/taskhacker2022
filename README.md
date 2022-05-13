@@ -23,9 +23,9 @@ Name: taskhacker2022
 
 - user can create new team and/or join existing team ✅
 
-- user can create tasks (text + images)
-- user can edit and delete tasks
-- user can change status of task
+- user can create tasks (text) ✅
+- user can edit and delete tasks ✅
+- user can change status of task ✅
 
 - user can edit profile ✅
 
@@ -137,9 +137,9 @@ Task
 
 - board id ✅
 - creator id ✅
-  - createdAt -- timestamp ❌
-  - deadline (user can set time for particular task) ❌
-- status (todo, in progress, done) ❌
+  <!-- - createdAt -- timestamp
+  - deadline (user can set time for particular task) -->
+- status (todo, in progress, done) ✅
 - title ✅
 - description (editable using summernote) ✅
   <!-- - color -->
