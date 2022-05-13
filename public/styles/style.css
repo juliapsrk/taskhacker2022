@@ -24,35 +24,24 @@ a {
 
 nav {
   display: flex;
-<<<<<<< HEAD
   background-color: lightseagreen;
-=======
-<<<<<<< HEAD
-  background-color: #9db75b;
-=======
-  background-color: #77bd73;
->>>>>>> 2f922003f7e787997a2c6a891686946e6b2b1da2
->>>>>>> fd4a5d2e05909311624b7c3c3920e8449cb39b36
   padding-left: 10px;
   padding-right: 10px;
   margin: 0;
 }
 
 nav a,
-nav p,
 nav button {
   padding: 1em 0;
   border: 1em;
 }
 
 nav a:not(:last-child),
-nav p:not(:last-child),
 nav button:not(:last-child) {
   margin-right: 1em;
 }
 
 nav a:first-child,
-nav p:first-child,
 nav button:first-child {
   margin-right: auto;
 }
@@ -102,10 +91,6 @@ p:not(:last-child) {
   object-fit: cover;
 }
 
-form:hover {
-  color: #0d6efd;
-}
-
 input:not([type='checkbox']),
 input:not([type='radio']),
 input:not([type='range']),
@@ -150,6 +135,12 @@ label {
 .profile-header a,
 .profile-header img {
   width: 10em;
+}
+
+.board-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /*# sourceMappingURL=style.css.map */

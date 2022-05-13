@@ -142,17 +142,8 @@ label {
   }
 }
 
-// .InReview {
-//   position: absolute;
-//   left: 0 px;
-//   top: 100 px;
-//   p {
-//     color: yellow;
-//   }
-// }
-
-// .Done {
-//   position: absolute;
-//   left: 300 px;
-//   top: 100px;
-// }
+.board-name {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

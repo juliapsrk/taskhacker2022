@@ -3,23 +3,23 @@
 }
 
 .first {
-  background-color: yellow;
+  background-color: #ffb3ba;
 }
 
 .second {
-  background-color: #7c7cdf;
+  background-color: #ffdfba;
 }
 
 .third {
-  background-color: orange;
+  background-color: #ffffba;
 }
 
 .fourth {
-  background-color: #0f910f;
+  background-color: #baffc9;
 }
 
-.fith {
-  background-color: #c58e6e;
+.fifth {
+  background-color: #bae1ff;
 }
 
 /*# sourceMappingURL=card.css.map */
