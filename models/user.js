@@ -17,7 +17,8 @@ const schema = new mongoose.Schema({
     type: String
   },
   picture: {
-    type: String
+    type: String,
+    default: 'https://taskhacker2022.herokuapp.com/images/defaultPicture.png'
   },
   teams: [
     {
