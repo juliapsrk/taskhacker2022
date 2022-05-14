@@ -96,7 +96,7 @@ textarea,
 select,
 button,
 .btn {
-  padding: 1em;
+  padding: 0.5em;
   border: 1px solid $grey;
   border-radius: 0;
   margin-bottom: 1em;
@@ -150,4 +150,8 @@ label {
   padding-top: 31px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.editProfile {
+  margin-top: 31px;
 }

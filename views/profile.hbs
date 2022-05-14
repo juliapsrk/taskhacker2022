@@ -1,8 +1,26 @@
-{{#if user.picture}}
-  <img class="pictureLarge" src="{{user.picture}}" alt="{{profile.name}}" />
-{{/if}}
-<h1>{{profile.name}}</h1>
+<div class="container-lg">
+  <div class="row">
+    <h1>{{profile.name}}</h1>
+    <br />
 
-{{#if userIsOwner}}
-  <a href="/profile/edit">Edit Profile</a>
-{{/if}}
+    <div>
+      {{#if user.picture}}
+        <img
+          class="pictureLarge"
+          src="{{user.picture}}"
+          alt="{{profile.name}}"
+        />
+      {{/if}}
+    </div>
+
+    <br />
+
+    <div>
+      {{#if userIsOwner}}
+        <a href="/profile/edit">
+          <button class="editProfile">Edit Profile</button></a>
+      {{/if}}
+    </div>
+
+  </div>
+</div>

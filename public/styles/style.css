@@ -98,7 +98,7 @@ textarea,
 select,
 button,
 .btn {
-  padding: 1em;
+  padding: 0.5em;
   border: 1px solid #1fb2aa;
   border-radius: 0;
   margin-bottom: 1em;
@@ -148,11 +148,14 @@ label {
 }
 
 .home,
-.signOut,
-.yourProfile {
+.signOut {
   padding-top: 31px;
   padding-left: 10px;
   padding-right: 10px;
+}
+
+.editProfile {
+  margin-top: 31px;
 }
 
 /*# sourceMappingURL=style.css.map */

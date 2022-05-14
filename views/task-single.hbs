@@ -1,16 +1,30 @@
-<h1>{{task.status}}</h1>
+<div class="container-lg">
+  <div class="row">
 
-<h3>Task: {{task.title}}</h3>
+    <h1>{{task.status}}</h1>
+    <div class="card" style="width: 20rm">
+      <h4>Task:
+        <br />
+        {{task.title}}</h4>
 
-{{#if task.description}}
-  <h4>Description: {{task.description}}</h4>
-{{/if}}
+      {{#if task.description}}
+        <p>Description:
+          <br />
+          {{task.description}}</p>
+      {{/if}}
+    </div>
+  </div>
 
-<a href="/task/{{task._id}}/edit">Edit Task</a>
-<br />
-<br />
-<form method="POST" action="/task/{{task._id}}/delete">
-  <button>Delete Task</button>
-</form>
+  <br />
+  <br />
 
-<a href="/board/{{boardId}}">Go Back</a>
+  <a href="/task/{{task._id}}/edit">
+    <button>Edit Task</button></a>
+  <br />
+  <form method="POST" action="/task/{{task._id}}/delete">
+    <button>Delete Task</button>
+  </form>
+
+  <a href="/board/{{boardId}}">
+    <button>Go Back to Board</button></a>
+</div>

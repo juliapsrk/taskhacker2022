@@ -1,42 +1,54 @@
-<h2>{{team.name}}</h2>
-<div class="row">
-  <div class="col-10">
 
-    <h3>Your Boards</h3>
-    {{#each team.boards}}
+<div class="container-lg">
+  <div class="row">
+      <h2>{{team.name}}</h2>
+    <div class="col-lg-10">
+     <h3>Your Boards</h3>
+     {{#each team.boards}}
     {{> board}}
     {{/each}}
+  
+<br>
+<br>
+<br>
 
     <h4>Create a new board</h4>
-
     <form action="/board/create" method="POST">
   <input type="text" id="input-name" name="name" placeholder="Board Name" />
   <button>Create board</button>
     </form>
   </div>
 
-<div class="col-2">
+<div class="col-lg-2">
+  <br>
+  <div>
+    <h5>Members:</h5>
+    <ul>
+      {{#each team.members}}
+      <li>{{this.name}}</li>
+      {{/each}}
+    </ul>
+  </div>
 
-<div>
-<h5>Members:</h5>
-<ul>
-{{#each team.members}}
-  <li>{{this.name}}</li>
-{{/each}}
-</ul>
+  <div>  
+    <h5>Creator: <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a></h5>
+  </div>
+
+<br>
+
+  <div>
+    {{#if userIsOwner}}
+      <a href="/team/{{team._id}}/edit">
+      <button>Edit Team</button></a>
+      <br>
+      <form method="POST" action="/team/{{team._id}}/delete">
+        <button>Delete Team</button>
+      </form>
+    {{/if}}
+  </div>
 </div>
 
-<div>
-<h5>Creator: <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a></h5>
-</div>
-
-{{#if userIsOwner}}
-  <a href="/team/{{team._id}}/edit">Edit Team</a>
-  <form method="POST" action="/team/{{team._id}}/delete">
-  <button>Delete Team</button>
-  </form>
-{{/if}}
 
 </div>
+<a href="/"><button>Go Back to Homepage</button></a> 
 </div>
-{{!-- <a href="/">Go Back</a> --}}

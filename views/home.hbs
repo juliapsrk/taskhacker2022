@@ -1,7 +1,12 @@
+<div class="container-lg">
+
 <div class="title"> 
 <h1>Welcome to {{title}}</h1>
 </div>
 
+<br>
+
+  <div class="col">
 
 {{#if user}}
 
@@ -11,6 +16,8 @@
   <li>{{> team}}</li>
 {{/each}}
 </ul>
+
+<br>
 
 {{! create a team }}
 <a href="/team/create">
@@ -24,3 +31,5 @@
 </form>
 
 {{/if}}
+
+</div>
