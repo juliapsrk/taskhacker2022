@@ -1,11 +1,14 @@
 <h1>{{task.status}}</h1>
 
-<h3>{{task.title}}</h3>
-<h3>{{task.status}}</h3>
-<h4>{{task.description}}</h4>
+<h3>Task: {{task.title}}</h3>
+
+{{#if task.description}}
+  <h4>Description: {{task.description}}</h4>
+{{/if}}
 
 <a href="/task/{{task._id}}/edit">Edit Task</a>
-
+<br />
+<br />
 <form method="POST" action="/task/{{task._id}}/delete">
   <button>Delete Task</button>
 </form>
