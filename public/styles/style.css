@@ -85,8 +85,8 @@ p:not(:last-child) {
 }
 
 .pictureLarge {
-  width: 10em;
-  height: 10em;
+  width: 8em;
+  height: 8em;
   margin-left: 1em;
   object-fit: cover;
 }
@@ -148,7 +148,8 @@ label {
 }
 
 .home,
-.signOut {
+.signOut,
+.yourProfile {
   padding-top: 31px;
   padding-left: 10px;
   padding-right: 10px;

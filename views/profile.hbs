@@ -1,9 +1,7 @@
-{{! <header class="profile-header"> }}
 {{#if user.picture}}
   <img class="pictureLarge" src="{{user.picture}}" alt="{{profile.name}}" />
 {{/if}}
 <h1>{{profile.name}}</h1>
-{{! </header> }}
 
 {{#if userIsOwner}}
   <a href="/profile/edit">Edit Profile</a>

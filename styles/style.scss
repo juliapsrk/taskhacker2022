@@ -83,18 +83,11 @@ p {
 }
 
 .pictureLarge {
-  width: 10em;
-  height: 10em;
+  width: 8em;
+  height: 8em;
   margin-left: 1em;
   object-fit: cover;
 }
-
-// form {
-//   display: flex;
-//   flex-direction: column;
-//   flex-wrap: wrap;
-//   align-items: flex-start;
-// }
 
 input:not([type='checkbox']),
 input:not([type='radio']),
