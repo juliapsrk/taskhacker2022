@@ -1,35 +1,68 @@
-<h1>Edit Task</h1>
+<div class="container-lg">
+  <div class="row">
 
-<form method="POST">
+    <h1>Edit Task</h1>
 
-  <label for="input-name">Task Title</label>
-  <input
-    type="text"
-    id="input=name"
-    name="taskName"
-    placeholder="New task title"
-    value="{{task.title}}"
-  />
+    <form method="POST">
 
-  <label for="input-description">Task Description</label>
-  <input
-    type="text"
-    id="input-description"
-    name="taskDescription"
-    placeholder="New task description"
-    value="{{task.description}}"
-  />
+      <div class="card special-card" style="width: 20rm">
 
-  <label for="input-status">Task status</label>
-  <select name="status" id="input-status" placeholder="Task status">
-    <option value="{{task.status}}">{{task.status}}</option>
-    <option value="To Do">To Do</option>
-    <option value="In Progress">In Progress</option>
-    <option value="In Review">In Review</option>
-    <option value="Done">Done</option>
-    <option value="Wishlist">Wishlist</option>
-  </select>
+        <label for="input-name">Task Title</label>
+        <input
+          type="text"
+          id="input=name"
+          name="taskName"
+          placeholder="New task title"
+          value="{{task.title}}"
+        />
 
-  <button>Edit Task</button>
+        <br />
 
-</form>
+        <label for="input-description">Task Description</label>
+        <input
+          type="text"
+          id="input-description"
+          name="taskDescription"
+          placeholder="New task description"
+          value="{{task.description}}"
+        />
+
+        <br />
+
+        <label for="input-status">Task status</label>
+        <select name="status" id="input-status" placeholder="Task status">
+          <option value="{{task.status}}">{{task.status}}</option>
+          <option value="To Do">To Do</option>
+          <option value="In Progress">In Progress</option>
+          <option value="In Review">In Review</option>
+          <option value="Done">Done</option>
+          <option value="Wishlist">Wishlist</option>
+        </select>
+
+      </div>
+      <br />
+
+      <button>Edit Task</button>
+
+    </form>
+  </div>
+</div>
+
+{{! // single task }}
+{{!-- <div class="container-lg">
+  <div class="row">
+
+    <div class="card" style="width: 20rm">
+      <h4>Task:
+        <br />
+        {{task.title}}</h4>
+
+      {{#if task.description}}
+        <p>Description:
+          <br />
+          {{task.description}}</p>
+      {{/if}}
+    </div>
+
+  </div>
+</div> --}}
