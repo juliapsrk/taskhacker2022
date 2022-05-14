@@ -25,8 +25,8 @@ a {
 nav {
   display: flex;
   background-color: lightseagreen;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 3%;
+  padding-right: 3%;
   margin: 0;
 }
 
@@ -53,7 +53,7 @@ footer {
   background-color: lightseagreen;
   font-size: 15px;
   margin-top: auto;
-  padding: 10px 15px;
+  padding: 10px 3%;
 }
 
 .title {
