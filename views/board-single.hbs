@@ -12,6 +12,7 @@
       <div class="card">
         {{> task}}
       </div>
+      <br>
     {{/each}}
   </div>
 
@@ -21,6 +22,7 @@
       <div class="card">
         {{> task}}
       </div>
+            <br>
     {{/each}}
   </div>
 
@@ -30,6 +32,7 @@
       <div class="card">
         {{> task}}
       </div>
+            <br>
     {{/each}}
   </div>
 
@@ -39,6 +42,7 @@
       <div class="card">
         {{> task}}
       </div>
+            <br>
     {{/each}}
   </div>
 
@@ -48,6 +52,7 @@
       <div class="card">
       {{> task}}
     </div>
+          <br>
    {{/each}}
   </div>
 
@@ -62,17 +67,15 @@
 <div class="container-lg">
 <div class="row">
 
-<div class="col-10">
-  
+<div class="col-lg-10">
 <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
 <div>
-  <input type="text" id="input-name" name="title" placeholder="Task title" />
+  <input type="text" id="input-name" name="title" placeholder="Task title" class="addNewTask"/>
   <br>
-  <input type="text" id="input-name" name="description" placeholder="Task description" />
+  <input type="text" id="input-name" name="description" placeholder="Task description" class="addNewTask"/>
   <br>
 </div>
-
 
   <label for="input-name">Task status</label>
   <select name="status" id="input-status" placeholder="Task status">
@@ -87,7 +90,7 @@
 </form>
 </div>
 
-<div class="col-2">
+<div class="col-lg-2">
 <div>
 <h3>Creator:
   <br>
@@ -96,12 +99,13 @@
 
 <div>
 {{#if userIsOwner}}
-  <a href="/board/{{board._id}}/edit">Edit Board</a>
+  <a href="/board/{{board._id}}/edit"> <button>Edit Board</button></a>
   <form method="POST" action="/board/{{board._id}}/delete">
   <button>Delete Board</button>
   </form>
 {{/if}}
 </div>
+
 </div>
 </div>
 

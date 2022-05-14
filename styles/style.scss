@@ -55,7 +55,7 @@ footer {
   background-color: lightseagreen;
   font-size: 15px;
   margin-top: auto;
-  padding: 10px;
+  padding: 10px 15px;
 }
 
 .title {
@@ -148,9 +148,13 @@ label {
   align-items: center;
 }
 
-// .taskTitle {
-//   // padding: 1em 4em;
-//   border: 5px;
-//   margin: auto;
-//   background-color: #daf7f6;
-// }
+.addNewTask {
+  width: 500px;
+}
+
+.home,
+.signOut {
+  padding-top: 31px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
