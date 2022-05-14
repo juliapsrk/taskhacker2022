@@ -54,17 +54,24 @@
   </div>
 </div>
 
-<div class="mb-3">
-<div class="col">
+<br>
+<br>
+<br>
+
+<div class="row">
+
+<div class="col-10">
   
 <h3>Add a new task</h3>
 <form action="/task/create" method="POST">
 <div>
   <input type="text" id="input-name" name="title" placeholder="Task title" />
+  <br>
   <input type="text" id="input-name" name="description" placeholder="Task description" />
+  <br>
 </div>
 
-<div class="col">
+
   <label for="input-name">Task status</label>
   <select name="status" id="input-status" placeholder="Task status">
     <option value="To Do">To Do</option>
@@ -73,11 +80,12 @@
     <option value="Done">Done</option>
     <option value="Wishlist">Wishlist</option>
   </select>
+  <br>
   <button>Add task</button>
-</div>
 </form>
 </div>
 
+<div class="col-2">
 <div>
 <h3>Creator: <a href="/profile/{{board.creator._id}}">{{board.creator.name}}</a></h3>
 </div>
@@ -90,6 +98,8 @@
   </form>
 {{/if}}
 </div>
+</div>
 
 <a href="/team/{{teams}}">Go Back</a> 
+
 </div>

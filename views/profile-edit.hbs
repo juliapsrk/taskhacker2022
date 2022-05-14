@@ -9,6 +9,8 @@
     placeholder="Type your new user name"
     value="{{profile.name}}"
   />
+  <br />
+  <br />
 
   <label for="input-email">Email</label>
   <input
@@ -19,11 +21,17 @@
     value="{{profile.email}}"
   />
 
+  <br />
+  <br />
+
   {{#if user.picture}}
     <img src="{{user.picture}}" alt="Profile picture" />
   {{/if}}
   <label for="input-picture">Add or update your profile picture</label>
   <input id="input-picture" type="file" accept="image/*" name="picture" />
+
+  <br />
+  <br />
 
   <button>Edit profile</button>
 

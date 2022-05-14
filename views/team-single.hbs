@@ -1,16 +1,21 @@
 <h2>{{team.name}}</h2>
+<div class="row">
+  <div class="col-10">
 
-<h3>Your Boards</h3>
-{{#each team.boards}}
-{{> board}}
-{{/each}}
+    <h3>Your Boards</h3>
+    {{#each team.boards}}
+    {{> board}}
+    {{/each}}
 
-<h4>Create a new board</h4>
+    <h4>Create a new board</h4>
 
-<form action="/board/create" method="POST">
+    <form action="/board/create" method="POST">
   <input type="text" id="input-name" name="name" placeholder="Board Name" />
   <button>Create board</button>
-</form>
+    </form>
+  </div>
+
+<div class="col-2">
 
 <div>
 <h5>Members:</h5>
@@ -22,7 +27,7 @@
 </div>
 
 <div>
-<h5>Creator:<a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a></h5>
+<h5>Creator: <a href="/profile/{{team.creator._id}}">{{team.creator.name}}</a></h5>
 </div>
 
 {{#if userIsOwner}}
@@ -32,4 +37,6 @@
   </form>
 {{/if}}
 
+</div>
+</div>
 {{!-- <a href="/">Go Back</a> --}}
