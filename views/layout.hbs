@@ -20,7 +20,7 @@
     <nav>
       <a class="home" href="/">Home</a>
       {{#if user}}
-        <a href="/profile/{{user._id}}">
+        <a class="yourProfile" href="/profile/{{user._id}}">
           {{#if user.picture}}
             <img
               class="pictureSmall"
